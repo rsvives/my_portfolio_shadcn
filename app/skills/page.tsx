@@ -1,17 +1,17 @@
 
 "use client";
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { CodeIcon, FolderGit2, GitCommitHorizontal, GitForkIcon, GitPullRequestArrow, LanguagesIcon, LucideIcon } from 'lucide-react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { CodeIcon, GitCommitHorizontal, GitForkIcon, GitPullRequestArrow, LucideIcon } from 'lucide-react'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/Tabs"
 
-import { Bar, BarChart, CartesianGrid, Label, LabelList, Line, LineChart, PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, RadialBar, RadialBarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, LabelList, Line, LineChart, PolarRadiusAxis, RadialBar, RadialBarChart, XAxis, YAxis } from "recharts"
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { ProjectListItem } from "@/components/ProjectListItem";
 import { Project } from "@/types/Project";
-import { ReactNode } from "react";
-import { RechartsFunction } from "recharts";
+import { JSX } from "react";
+
 
 
 export default function page() {
@@ -148,7 +148,7 @@ export default function page() {
         value: number,
         icon: LucideIcon
         chartData: () => ForkedRepos[] | Languages[] | Commits[] | PullRequests[],
-        chart: () => RechartsFunction
+        chart: () => JSX.Element
     }
 
     const fixedStats: FixedStat[] = [
@@ -469,7 +469,6 @@ export default function page() {
                                     </CardContent>
                                 </Card>
                                 <Card className="w-[100%] md:w-[40%]">
-                                    {/* <Card className="col-span-2 "> */}
                                     <CardHeader>
                                         <CardTitle>Projects</CardTitle>
                                     </CardHeader>
