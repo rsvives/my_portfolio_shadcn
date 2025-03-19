@@ -9,8 +9,9 @@ import { Bar, BarChart, CartesianGrid, LabelList, Line, LineChart, PolarRadiusAx
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { ProjectListItem } from "@/components/ProjectListItem";
-import { Project } from "@/types/Project";
-import { JSX } from "react";
+import { FixedStat, Project } from "@/lib/definitions";
+import { JSX, Suspense } from "react";
+import ChartCommits from "@/components/ChartCommits";
 
 
 
@@ -126,30 +127,7 @@ export default function page() {
     } satisfies ChartConfig
 
 
-    type ForkedRepos = {
-        repo: string,
-        forks: number
-    }
-    type Languages = {
-        languaje: string,
-        percentaje: number
-    }
 
-    type Commits = {
-        commits: number
-    }
-    type PullRequests = {
-        merged: number,
-        notMerged: number
-    }
-
-    type FixedStat = {
-        title: string,
-        value: number,
-        icon: LucideIcon
-        chartData: () => ForkedRepos[] | Languages[] | Commits[] | PullRequests[],
-        chart: () => JSX.Element
-    }
 
     const fixedStats: FixedStat[] = [
         {
@@ -250,36 +228,36 @@ export default function page() {
             }
 
         },
-        {
-            title: 'Commits',
-            value: 1234,
-            icon: GitCommitHorizontal,
-            chartData: () => [
-                { commits: 3 },
-                { commits: 6 },
-                { commits: 11 },
-                { commits: 5 },
-                { commits: 8 },
-                { commits: 8 },
-                { commits: 17 },
-                { commits: 11 },
-                { commits: 3 },
-                { commits: 5 },
-                { commits: 17 },
-                { commits: 21 },
-                { commits: 6 },
-                { commits: 21 }
-            ],
-            chart: function (this) {
-                return (
-                    <BarChart accessibilityLayer data={this.chartData()} >
-                        <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-                        <Bar dataKey='commits' radius={8} fill="#000" />
-                    </BarChart>
+        // {
+        //     title: 'Commits',
+        //     value: 1234,
+        //     icon: GitCommitHorizontal,
+        //     chartData: () => [
+        //         { commits: 3 },
+        //         { commits: 6 },
+        //         { commits: 11 },
+        //         { commits: 5 },
+        //         { commits: 8 },
+        //         { commits: 8 },
+        //         { commits: 17 },
+        //         { commits: 11 },
+        //         { commits: 3 },
+        //         { commits: 5 },
+        //         { commits: 17 },
+        //         { commits: 21 },
+        //         { commits: 6 },
+        //         { commits: 21 }
+        //     ],
+        //     chart: function (this) {
+        //         return (
+        //             <BarChart accessibilityLayer data={this.chartData()} >
+        //                 <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
+        //                 <Bar dataKey='commits' radius={8} fill="#000" />
+        //             </BarChart>
 
-                )
-            }
-        },
+        //         )
+        //     }
+        // },
 
         {
             title: 'pull requests',
@@ -438,7 +416,9 @@ export default function page() {
                                     </ChartContainer>
                                 </CardContent>
                             </Card>)}
-
+                        <Suspense fallback={<div>Cargando</div>} >
+                            <ChartCommits />
+                        </Suspense>
                     </div>
                     {Object.entries(skills).map(([key, value]) =>
                         <TabsContent className="order-1 md:order-2 mt-4" key={key} value={key}>
@@ -484,6 +464,7 @@ export default function page() {
                                         </ScrollArea>
                                     </CardContent>
                                 </Card>
+
 
                             </div>
 
