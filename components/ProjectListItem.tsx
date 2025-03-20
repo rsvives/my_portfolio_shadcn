@@ -1,4 +1,5 @@
-import { Project } from "@/types/Project";
+
+import { Project } from "@/lib/definitions";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 type props = {
