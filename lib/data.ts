@@ -3,7 +3,7 @@ import { Commits } from "./definitions"
 
 export async function fetchLatestCommits(): Promise<Commits[]> {
     // await new Promise((resolve) => setTimeout(resolve, 2000))
-    const res = await fetch('https://api.github.com/users/rsvives/events')
+    const res = await fetch('https://api.github.com/users/rsvives/events/public')
     const commits = await res.json()
     const mappedCommits = commits.map((el) => ({ date: el.created_at, commits: el.payload.commits?.length ?? 0, repo: el.repo }))
     console.log(mappedCommits)
@@ -20,7 +20,7 @@ export async function fetchLanguages() {
         { languaje: "Typescript", percentaje: 95 },
         { languaje: "PHP", percentaje: 80 },
     ]
-    return new Promise((resolve) => setTimeout(() => resolve(data), 3000))
+    return new Promise((resolve) => setTimeout(() => resolve(data), 2500))
 }
 
 export async function fetchForkedRepos() {
@@ -33,13 +33,13 @@ export async function fetchForkedRepos() {
         { repo: 'one other repo', forks: 7 },
         { repo: 'last repo', forks: 3 },
     ]
-    return new Promise((resolve) => setTimeout(() => resolve(data), 3000))
+    return new Promise((resolve) => setTimeout(() => resolve(data), 2000))
 }
 
 export async function fetchPullRequests() {
     //emulating async fetching
     const data = [{ merged: 90, notMerged: 10 }]
-    return new Promise((resolve) => setTimeout(() => resolve(data), 3000))
+    return new Promise((resolve) => setTimeout(() => resolve(data), 300))
 }
 
 export async function fetchTechnologies() {
@@ -122,5 +122,5 @@ export async function fetchTechnologies() {
             },
         ],
     }
-    return new Promise((resolve) => setTimeout(() => resolve(skills), 2500))
+    return new Promise((resolve) => setTimeout(() => resolve(skills), 700))
 }

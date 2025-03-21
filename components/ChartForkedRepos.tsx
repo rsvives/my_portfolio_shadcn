@@ -1,16 +1,15 @@
 "use client"
+
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart";
 
-export async function ChartForkedRepos({ forkedReposData }) {
+export function ChartForkedRepos({ forkedReposData }) {
 
     const chartConfig = {
         forks: {
             label: 'Forked: '
         }
     } satisfies ChartConfig
-
-
 
 
     return (

@@ -1,14 +1,16 @@
 "use client"
+
 import { PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart";
 
-export async function ChartPullRequest({ pullRequestsData }) {
+export function ChartPullRequest({ pullRequestsData }) {
     const chartConfig = {
         percentaje: {
             label: "percentaje",
             // color: "#2563eb",
         }
     }
+
 
     return (
         <ChartContainer config={chartConfig} className="h-[90px] w-[100%]" >
