@@ -7,7 +7,7 @@ export default async function CardLanguagesChart() {
     const languagesData = await fetchLanguages()
 
     return (
-        <FixedStatsCard title="Languages" value={1234} icon={<CodeIcon size={16} />}>
+        <FixedStatsCard title="Languages" value={"top 5"} icon={<CodeIcon size={16} />}>
             <ChartLanguages languagesData={languagesData} />
         </FixedStatsCard>
     )
