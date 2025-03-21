@@ -1,6 +1,7 @@
 
 import { Project } from "@/lib/definitions";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Button } from "./ui/button";
 
 type props = {
     project: Project
@@ -9,8 +10,8 @@ type props = {
 export function ProjectListItem({ project }: props) {
     // return (JSON.stringify(project))
     return (
-        <div key={project.name} className="flex items-start gap-4">
-            <Avatar>
+        <div key={project.name} className="flex items-center gap-4">
+            <Avatar className="self-start">
                 <AvatarImage src={project.avatar} alt={project.name} />
                 <AvatarFallback></AvatarFallback>
             </Avatar>
@@ -19,7 +20,11 @@ export function ProjectListItem({ project }: props) {
                 <p>{project.description}</p>
                 <div>stars + commits + pr</div>
             </div>
-            <div className="self-center">button</div>
+            <div className="flex gap-2">
+                <Button variant="ghost" >Repositorio</Button>
+                <Button variant="outline" >Ver</Button>
+
+            </div>
         </div>
     )
 
