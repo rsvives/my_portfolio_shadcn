@@ -1,11 +1,12 @@
 "use client"
 
+import { Commits } from "@/lib/definitions"
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart"
 import { Bar, BarChart } from "recharts"
 
 
 
-export function ChartCommits({ data }) {
+export function ChartCommits({ data }: { data: Commits[] }) {
 
     const chartConfig = {
         percentaje: {
@@ -14,19 +15,13 @@ export function ChartCommits({ data }) {
         },
     } satisfies ChartConfig
 
-
-
-
     return (
-
-        <ChartContainer config={chartConfig} className="h-[90px] w-[100%]">
+        <ChartContainer config={chartConfig} className="h-[100px] w-[100%]">
             <BarChart accessibilityLayer data={data} >
                 <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
                 <Bar dataKey='commits' radius={8} fill="#000" />
             </BarChart>
         </ChartContainer>
-
-
     )
 
 }

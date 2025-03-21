@@ -22,7 +22,15 @@ export type Languages = {
 }
 
 export type Commits = {
-    commits: number
+    date: Date | string
+    commits: number,
+    repo: Repo
+}
+
+export type Repo = {
+    id: number,
+    name: string,
+    url: string
 }
 export type PullRequests = {
     merged: number,

@@ -11,173 +11,172 @@ import { Project } from "@/lib/definitions";
 // import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 // import { Bar, BarChart, XAxis, YAxis } from "recharts";
 import FixedStats from "@/components/FixedStats";
+// import { fetchTechnologies } from "@/lib/data";
+// import { useQuery } from "@tanstack/react-query";
 
-
-
-export default function page() {
-    const skills = {
-        frontend: [
-            {
-                tech: 'Nuxtjs',
-                percentaje: 0.7
-            },
-            {
-                tech: 'React',
-                percentaje: 0.85
-            },
-            {
-                tech: 'Vue',
-                percentaje: 0.7
-            },
-            {
-                tech: 'Javascript',
-                percentaje: 0.95
-            },
-            {
-                tech: 'Typescript',
-                percentaje: 0.85
-            },
-            {
-                tech: 'Redux',
-                percentaje: 0.65
-            },
-            {
-                tech: 'ReactQuery',
-                percentaje: 0.75
-            },
-            {
-                tech: 'GraphQL',
-                percentaje: 0.8
-            },
-            {
-                tech: 'Zustand',
-                percentaje: 0.65
-            },
-
-        ],
-        backend: [
-            {
-                tech: 'NodeJS',
-                percentaje: 0.65
-            },
-            {
-                tech: 'Laravel',
-                percentaje: 0.65
-            },
-            {
-                tech: 'MySQL',
-                percentaje: 0.65
-            },
-            {
-                tech: 'MongoDB',
-                percentaje: 0.65
-            },
-        ],
-        // database: [{}],
-        infrastructure: [{
+const skills = {
+    frontend: [
+        {
+            tech: 'Nuxtjs',
+            percentaje: 0.7
+        },
+        {
+            tech: 'React',
+            percentaje: 0.85
+        },
+        {
+            tech: 'Vue',
+            percentaje: 0.7
+        },
+        {
+            tech: 'Javascript',
+            percentaje: 0.95
+        },
+        {
+            tech: 'Typescript',
+            percentaje: 0.85
+        },
+        {
+            tech: 'Redux',
+            percentaje: 0.65
+        },
+        {
+            tech: 'ReactQuery',
+            percentaje: 0.75
+        },
+        {
+            tech: 'GraphQL',
+            percentaje: 0.8
+        },
+        {
             tech: 'Zustand',
             percentaje: 0.65
-        },],
-        other: [{}],
-        'UX/UI': [
-            {
-                tech: 'Figma',
-                percentaje: 0.65
-            },
-            {
-                tech: 'Design Thinking',
-                percentaje: 0.65
-            },
-            {
-                tech: 'Design Thinking',
-                percentaje: 0.65
-            },
-        ],
-    }
+        },
 
-    const projects: Project[] = [
+    ],
+    backend: [
         {
-            avatar: 'asdf.png',
-            name: 'asdf',
-            category: 'frontend',
-            description: 'lorem ipsum blablabla...',
-            repository_url: '#',
-            deploy_url: '',
-            techStack: ['nuxt', 'vue', 'mongodb'],
-            tags: ['asdf', 'asdf', 'asdf']
+            tech: 'NodeJS',
+            percentaje: 0.65
         },
         {
-            avatar: 'fdsa.png',
-            name: 'fdsa',
-            category: 'backend',
-            description: 'lorem ipsum blablabla...',
-            repository_url: '#',
-            deploy_url: '',
-            techStack: ['nuxt', 'vue'],
-            tags: ['asdf', 'asdf', 'asdf']
+            tech: 'Laravel',
+            percentaje: 0.65
         },
         {
-            avatar: 'qwer.png',
-            name: 'qwer',
-            category: 'frontend',
-            description: 'lorem ipsum blablabla...',
-            repository_url: '#',
-            deploy_url: '',
-            techStack: ['nuxt', 'vue'],
-            tags: ['asdf', 'asdf', 'asdf']
+            tech: 'MySQL',
+            percentaje: 0.65
         },
         {
-            avatar: 'qwer.png',
-            name: 'ahgfsd',
-            category: 'frontend',
-            description: 'lorem ipsum blablabla...',
-            repository_url: '#',
-            deploy_url: '',
-            techStack: ['nuxt', 'vue'],
-            tags: ['asdf', 'asdf', 'asdf']
+            tech: 'MongoDB',
+            percentaje: 0.65
+        },
+    ],
+    // database: [{}],
+    infrastructure: [{
+        tech: 'Zustand',
+        percentaje: 0.65
+    },],
+    other: [{}],
+    'UX/UI': [
+        {
+            tech: 'Figma',
+            percentaje: 0.65
         },
         {
-            avatar: 'qwer.png',
-            name: 'lkhlska',
-            category: 'frontend',
-            description: 'lorem ipsum blablabla...',
-            repository_url: '#',
-            deploy_url: '',
-            techStack: ['nuxt', 'vue'],
-            tags: ['asdf', 'asdf', 'asdf']
+            tech: 'Design Thinking',
+            percentaje: 0.65
         },
-    ]
+        {
+            tech: 'Design Thinking',
+            percentaje: 0.65
+        },
+    ],
+}
+const projects: Project[] = [
+    {
+        avatar: 'asdf.png',
+        name: 'asdf',
+        category: 'frontend',
+        description: 'lorem ipsum blablabla...',
+        repository_url: '#',
+        deploy_url: '',
+        techStack: ['nuxt', 'vue', 'mongodb'],
+        tags: ['asdf', 'asdf', 'asdf']
+    },
+    {
+        avatar: 'fdsa.png',
+        name: 'fdsa',
+        category: 'backend',
+        description: 'lorem ipsum blablabla...',
+        repository_url: '#',
+        deploy_url: '',
+        techStack: ['nuxt', 'vue'],
+        tags: ['asdf', 'asdf', 'asdf']
+    },
+    {
+        avatar: 'qwer.png',
+        name: 'qwer',
+        category: 'frontend',
+        description: 'lorem ipsum blablabla...',
+        repository_url: '#',
+        deploy_url: '',
+        techStack: ['nuxt', 'vue'],
+        tags: ['asdf', 'asdf', 'asdf']
+    },
+    {
+        avatar: 'qwer.png',
+        name: 'ahgfsd',
+        category: 'frontend',
+        description: 'lorem ipsum blablabla...',
+        repository_url: '#',
+        deploy_url: '',
+        techStack: ['nuxt', 'vue'],
+        tags: ['asdf', 'asdf', 'asdf']
+    },
+    {
+        avatar: 'qwer.png',
+        name: 'lkhlska',
+        category: 'frontend',
+        description: 'lorem ipsum blablabla...',
+        repository_url: '#',
+        deploy_url: '',
+        techStack: ['nuxt', 'vue'],
+        tags: ['asdf', 'asdf', 'asdf']
+    },
+]
+// const chartConfig = {
+//     forks: {
+//         label: 'Forked: '
+//     },
+//     notMerged: {
+//         label: 'Open'
+//     },
+//     percentaje: {
+//         label: "percentaje",
+//         // color: "#2563eb",
+//     },
+//     php: {
+//         label: "PHP",
+//         color: "#2563eb",
+//     },
+//     javascript: {
+//         label: "JavaScript",
+//     },
+//     python: {
+//         label: "Python",
+//     },
+//     HTML: {
+//         label: "HTML",
+//     },
+//     mobile: {
+//         label: "Mobile",
+//         color: "#60a5fa",
+//     },
+// } satisfies ChartConfig
 
-    // const chartConfig = {
-    //     forks: {
-    //         label: 'Forked: '
-    //     },
-    //     notMerged: {
-    //         label: 'Open'
-    //     },
-    //     percentaje: {
-    //         label: "percentaje",
-    //         // color: "#2563eb",
-    //     },
-    //     php: {
-    //         label: "PHP",
-    //         color: "#2563eb",
-    //     },
-    //     javascript: {
-    //         label: "JavaScript",
-    //     },
-    //     python: {
-    //         label: "Python",
-    //     },
-    //     HTML: {
-    //         label: "HTML",
-    //     },
-    //     mobile: {
-    //         label: "Mobile",
-    //         color: "#60a5fa",
-    //     },
-    // } satisfies ChartConfig
-
+export default function SkillsPage() {
+    // const { data: skills, error, isLoading } = useQuery({ queryKey: ['technologies'], queryFn: fetchTechnologies })
 
     return (
         <div className="flex-1 space-y-4 p-8 pt-6">
@@ -227,8 +226,8 @@ export default function page() {
                                     <CardHeader>
                                         <CardTitle>Projects</CardTitle>
                                     </CardHeader>
-                                    <CardContent className="">
-                                        <ScrollArea className="h-full md:h-[29vw]" >
+                                    <CardContent className="px-2">
+                                        <ScrollArea className="h-full md:h-[29vw] px-4">
                                             <div className="space-y-4">
                                                 {projects.map(p =>
                                                     <ProjectListItem key={p.name} project={p} />

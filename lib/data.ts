@@ -1,7 +1,7 @@
+import { Commits } from "./definitions"
 
 
-export async function fetchLatestCommits() {
-
+export async function fetchLatestCommits(): Promise<Commits[]> {
     // await new Promise((resolve) => setTimeout(resolve, 2000))
     const res = await fetch('https://api.github.com/users/rsvives/events')
     const commits = await res.json()
@@ -9,48 +9,118 @@ export async function fetchLatestCommits() {
     console.log(mappedCommits)
 
     return mappedCommits
-    const data = [
-        { commits: 3 },
-        { commits: 6 },
-        { commits: 11 },
-        { commits: 5 },
-        { commits: 8 },
-        { commits: 8 },
-        { commits: 17 },
-        { commits: 11 },
-        { commits: 3 },
-        { commits: 5 },
-        { commits: 17 },
-        { commits: 21 },
-        { commits: 6 },
-        { commits: 21 }
-    ]
-    return data
 }
 
 export async function fetchLanguages() {
-    await new Promise((resolve) => setTimeout(resolve, 3000))
-    return [
+    //emulating async fetching
+    const data = [
         { languaje: "HTML", percentaje: 75 },
         { languaje: "python", percentaje: 73 },
         { languaje: "javascript", percentaje: 95 },
-        { languaje: "php", percentaje: 80 },
+        { languaje: "Typescript", percentaje: 95 },
+        { languaje: "PHP", percentaje: 80 },
     ]
+    return new Promise((resolve) => setTimeout(() => resolve(data), 3000))
 }
 
 export async function fetchForkedRepos() {
-    await new Promise((resolve) => setTimeout(resolve, 2500))
-    return [
+    //emulating async fetching
+    const data = [
         { repo: 'something', forks: 1 },
         { repo: 'otherthing', forks: 4 },
         { repo: 'my other repo', forks: 6 },
         { repo: 'another repo', forks: 1 },
         { repo: 'one other repo', forks: 7 },
-        { repo: 'tropicalninis', forks: 3 },
+        { repo: 'last repo', forks: 3 },
     ]
+    return new Promise((resolve) => setTimeout(() => resolve(data), 3000))
 }
 
 export async function fetchPullRequests() {
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    return [{ merged: 90, notMerged: 10 }]
+    //emulating async fetching
+    const data = [{ merged: 90, notMerged: 10 }]
+    return new Promise((resolve) => setTimeout(() => resolve(data), 3000))
+}
+
+export async function fetchTechnologies() {
+    const skills = {
+        frontend: [
+            {
+                tech: 'Nuxtjs',
+                percentaje: 0.7
+            },
+            {
+                tech: 'React',
+                percentaje: 0.85
+            },
+            {
+                tech: 'Vue',
+                percentaje: 0.7
+            },
+            {
+                tech: 'Javascript',
+                percentaje: 0.95
+            },
+            {
+                tech: 'Typescript',
+                percentaje: 0.85
+            },
+            {
+                tech: 'Redux',
+                percentaje: 0.65
+            },
+            {
+                tech: 'ReactQuery',
+                percentaje: 0.75
+            },
+            {
+                tech: 'GraphQL',
+                percentaje: 0.8
+            },
+            {
+                tech: 'Zustand',
+                percentaje: 0.65
+            },
+
+        ],
+        backend: [
+            {
+                tech: 'NodeJS',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Laravel',
+                percentaje: 0.65
+            },
+            {
+                tech: 'MySQL',
+                percentaje: 0.65
+            },
+            {
+                tech: 'MongoDB',
+                percentaje: 0.65
+            },
+        ],
+        // database: [{}],
+        infrastructure: [{
+            tech: 'Zustand',
+            percentaje: 0.65
+        },],
+        other: [{}],
+        'UX/UI': [
+            {
+                tech: 'Figma',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Design Thinking',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Design Thinking',
+                percentaje: 0.65
+            },
+        ],
+    }
+    return new Promise((resolve) => setTimeout(() => resolve(skills), 2500))
 }

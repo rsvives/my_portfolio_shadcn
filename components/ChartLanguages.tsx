@@ -5,7 +5,6 @@ import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "
 
 export function ChartLanguages({ languagesData }) {
 
-
     const chartConfig = {
         php: {
             label: "PHP",
@@ -23,7 +22,7 @@ export function ChartLanguages({ languagesData }) {
     } satisfies ChartConfig
 
     return (
-        <ChartContainer config={chartConfig} className="h-[90px] w-[100%]">
+        <ChartContainer config={chartConfig} className="h-[100px] w-[100%]">
             <RadialBarChart
                 accessibilityLayer
                 data={languagesData}
