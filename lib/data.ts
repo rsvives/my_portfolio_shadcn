@@ -3,7 +3,12 @@
 export async function fetchLatestCommits() {
 
     // await new Promise((resolve) => setTimeout(resolve, 2000))
+    const res = await fetch('https://api.github.com/users/rsvives/events')
+    const commits = await res.json()
+    const mappedCommits = commits.map((el) => ({ date: el.created_at, commits: el.payload.commits?.length ?? 0, repo: el.repo }))
+    console.log(mappedCommits)
 
+    return mappedCommits
     const data = [
         { commits: 3 },
         { commits: 6 },
@@ -24,7 +29,7 @@ export async function fetchLatestCommits() {
 }
 
 export async function fetchLanguages() {
-    // await new Promise((resolve) => setTimeout(resolve, 3000))
+    await new Promise((resolve) => setTimeout(resolve, 3000))
     return [
         { languaje: "HTML", percentaje: 75 },
         { languaje: "python", percentaje: 73 },
