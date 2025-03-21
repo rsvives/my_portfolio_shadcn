@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import React, { JSX } from "react";
 
-export function FixedStatsCard({ title, value, icon, children }: { title: string, value: number, icon: JSX.Element, children: JSX.Element }) {
+export function FixedStatsCard({ title, value, icon, children }: { title: string, value: number | string, icon: JSX.Element, children: JSX.Element }) {
     return (
         <Card >
             <CardHeader>
