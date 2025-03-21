@@ -29,7 +29,7 @@ export function ChartLanguages({ languagesData }) {
                 data={languagesData}
                 startAngle={180}
                 endAngle={-0}
-                barSize={12}
+                barSize={18}
                 barGap={12}
                 innerRadius={30}
                 outerRadius={100}

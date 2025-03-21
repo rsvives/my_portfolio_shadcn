@@ -61,7 +61,7 @@ export async function ChartPullRequest({ pullRequestsData }) {
                 // className="stroke-transparent stroke-8"
                 />
                 <RadialBar
-                    dataKey={'not merged'}
+                    dataKey={'notMerged'}
 
                     fill="transparent"
                     stackId="a"
