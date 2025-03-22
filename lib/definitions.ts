@@ -24,7 +24,7 @@ export type Languages = {
 export type Commits = {
     date: Date | string
     commits: number,
-    repo: Repo
+    repos: Repo[]
 }
 
 export type Repo = {

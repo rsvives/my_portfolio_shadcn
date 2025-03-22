@@ -1,14 +1,8 @@
 import { Commits } from "./definitions"
 
-
 export async function fetchLatestCommits(): Promise<Commits[]> {
-    // await new Promise((resolve) => setTimeout(resolve, 2000))
-    const res = await fetch('https://api.github.com/users/rsvives/events/public')
-    const commits = await res.json()
-    const mappedCommits = commits.map((el) => ({ date: el.created_at, commits: el.payload.commits?.length ?? 0, repo: el.repo }))
-    console.log(mappedCommits)
-
-    return mappedCommits
+    const data = await fetch('api/commits')
+    return await data.json()
 }
 
 export async function fetchLanguages() {
@@ -40,6 +34,7 @@ export async function fetchPullRequests() {
     //emulating async fetching
     const data = [{ merged: 90, notMerged: 10 }]
     return new Promise((resolve) => setTimeout(() => resolve(data), 300))
+
 }
 
 export async function fetchTechnologies() {

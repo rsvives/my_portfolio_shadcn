@@ -11,7 +11,7 @@ export default function CardCommitsChart() {
 
     if (isLoading) return <div>...loading</div>
     const totalCommits = data?.reduce((acc, curr) => acc + (curr.commits || 0), 0) || 0
-    console.log(totalCommits)
+    // console.log(totalCommits)
     return (
         <FixedStatsCard title="Latest Commits" icon={<GitCommitHorizontal size={16} />} value={totalCommits}>
             <ChartCommits data={data} />
