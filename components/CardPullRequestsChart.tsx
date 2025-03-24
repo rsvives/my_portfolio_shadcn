@@ -5,6 +5,7 @@ import { FixedStatsCard } from "./FixedStatsCard";
 import { GitPullRequestArrow } from "lucide-react";
 import { ChartPullRequest } from "./ChartPullRequests";
 import { useQuery } from "@tanstack/react-query";
+import { GithubEventType } from "@/lib/definitions";
 
 export default function CardPullRequestsChart() {
     // const pullRequestsData = await fetchPullRequests()
@@ -14,7 +15,7 @@ export default function CardPullRequestsChart() {
     if (isLoading) return (<div>...loading</div>)
 
     return (
-        <FixedStatsCard title="Pull Requests" value={"90%"} icon={<GitPullRequestArrow size={16}></GitPullRequestArrow>}>
+        <FixedStatsCard title="Pull Requests" value={pullRequestsData?.filter(ev => ev.type === GithubEventType.PullRequest)[0].percentage + '%'} icon={<GitPullRequestArrow size={16}></GitPullRequestArrow>}>
             <ChartPullRequest pullRequestsData={pullRequestsData} />
         </FixedStatsCard>
     )

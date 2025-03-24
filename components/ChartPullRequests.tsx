@@ -7,7 +7,7 @@ export function ChartPullRequest({ pullRequestsData }) {
     const chartConfig = {
         percentage: {
             label: "percentage",
-            // color: "#2563eb",
+            color: "#2563eb",
         }
     }
 
@@ -73,7 +73,7 @@ export function ChartPullRequest({ pullRequestsData }) {
             </RadialBarChart> */}
 
             <RadarChart data={pullRequestsData} cy={'55%'}>
-                <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+                <ChartTooltip cursor={false} content={<ChartTooltipContent color="#000" formatter={(data) => data + '%'} />} />
                 <PolarAngleAxis dataKey="type" orientation="outer" />
                 <PolarGrid />
                 <Radar
