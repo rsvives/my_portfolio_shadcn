@@ -1,6 +1,6 @@
 "use client"
 
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, Line, LineChart, XAxis } from "recharts";
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart";
 
 export function ChartForkedRepos({ forkedReposData }) {
@@ -13,8 +13,8 @@ export function ChartForkedRepos({ forkedReposData }) {
 
 
     return (
-        <ChartContainer config={chartConfig} className="h-[90px] w-[100%]">
-            <LineChart
+        <ChartContainer config={chartConfig} className="max-h-[200px] mx-auto aspect-video">
+            {/* <LineChart
                 accessibilityLayer
                 data={forkedReposData}
                 margin={{
@@ -39,7 +39,12 @@ export function ChartForkedRepos({ forkedReposData }) {
                     }}
                 >
                 </Line>
-            </LineChart >
+            </LineChart > */}
+            <BarChart accessibilityLayer data={forkedReposData} >
+                <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+                <XAxis dataKey={'repo'} hide />
+                <Bar dataKey='forks' radius={8} fill="#000" />
+            </BarChart>
         </ChartContainer>
     )
 }

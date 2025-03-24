@@ -1,21 +1,21 @@
 "use client"
 
-import { PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts";
+import { LabelList, PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, RadialBar, RadialBarChart } from "recharts";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart";
 
 export function ChartPullRequest({ pullRequestsData }) {
     const chartConfig = {
-        percentaje: {
-            label: "percentaje",
+        percentage: {
+            label: "percentage",
             // color: "#2563eb",
         }
     }
 
 
     return (
-        <ChartContainer config={chartConfig} className="h-[90px] w-[100%]" >
+        <ChartContainer config={chartConfig} className="max-h-[200px] mx-auto aspect-video" >
 
-            <RadialBarChart
+            {/* <RadialBarChart
                 data={pullRequestsData}
                 startAngle={180}
                 endAngle={0}
@@ -29,7 +29,7 @@ export function ChartPullRequest({ pullRequestsData }) {
                     content={<ChartTooltipContent hideLabel nameKey="merged" labelKey="merged" />}
                 />
                 <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
-                    {/* <Label
+                    <Label
                         content={({ viewBox }) => {
                             if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                                 return (
@@ -52,7 +52,7 @@ export function ChartPullRequest({ pullRequestsData }) {
                                 )
                             }
                         }}
-                    /> */}
+                    />
                 </PolarRadiusAxis>
                 <RadialBar
                     dataKey="merged"
@@ -70,7 +70,21 @@ export function ChartPullRequest({ pullRequestsData }) {
                     cornerRadius={8}
                 // className="stroke-transparent stroke-8"
                 />
-            </RadialBarChart>
+            </RadialBarChart> */}
+
+            <RadarChart data={pullRequestsData} cy={'55%'}>
+                <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+                <PolarAngleAxis dataKey="type" orientation="outer" />
+                <PolarGrid />
+                <Radar
+                    width={'90%'}
+                    dataKey="percentage"
+                    // fill="var(--color-desktop)"
+                    fillOpacity={0.8}
+                />
+                <LabelList position="inside" />
+            </RadarChart>
+
         </ChartContainer >
     )
 }

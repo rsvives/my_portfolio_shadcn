@@ -11,7 +11,7 @@ export function FixedStatsCard({ title, value, icon, children }: { title: string
                 </div>
                 <CardTitle>{value}</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1">
                 {children}
             </CardContent>
         </Card>
