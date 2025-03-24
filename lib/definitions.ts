@@ -1,5 +1,6 @@
 import { LucideIcon } from "lucide-react"
 import { JSX } from "react"
+import { Endpoints } from "@octokit/types";
 
 export type Project = {
     avatar: string,
@@ -10,6 +11,17 @@ export type Project = {
     deploy_url: string,
     tags: string[],
     techStack: string[]
+}
+
+export type GithubEvent = Endpoints["GET /users/{username}/events"]['response']['data']
+
+export enum GithubEventType {
+    PullRequest = 'PullRequestEvent',
+    Push = 'PushEvent',
+    Create = 'CreateEvent',
+    Fork = 'ForkEvent',
+    Watch = 'WatchEvent',
+    Public = 'PublicEvent',
 }
 
 export type ForkedRepos = {

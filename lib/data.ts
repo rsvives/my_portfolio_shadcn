@@ -1,20 +1,53 @@
-import { Commits } from "./definitions"
+import { Commits, GithubEvent, GithubEventType } from "./definitions"
 
 export async function fetchLatestCommits(): Promise<Commits[]> {
-    const data = await fetch('api/commits')
-    return await data.json()
+
+    const response = await fetch('api/github_events')
+    const events: GithubEvent = await response.json()
+    console.log(events)
+
+
+    const filteredEvents = events.filter((el) => el.type === GithubEventType.PullRequest || el.type === GithubEventType.Push)
+    const mappedCommits = filteredEvents.map((el) => ({ date: el.created_at, commits: el.payload?.commits?.length ?? 0, repo: el.repo }))
+    const groupedCommits: Commits[] = mappedCommits.reduce((acc, commit) => {
+        const date = commit.date?.split('T')[0]; // Extract only the date part
+
+        if (!acc[date]) {
+            acc[date] = { date, commits: 0, repos: [] };
+        }
+        acc[date].commits += commit.commits;
+        acc[date].repos.push(commit.repo);
+        return acc;
+
+
+    }, []);
+
+    const groupedCommitsArray = Object.values(groupedCommits).sort((a, b) => a.date > b.date ? 1 : -1);
+    return groupedCommitsArray
 }
 
 export async function fetchLanguages() {
     //emulating async fetching
-    const data = [
-        { languaje: "HTML", percentaje: 75 },
-        { languaje: "python", percentaje: 73 },
-        { languaje: "javascript", percentaje: 95 },
-        { languaje: "Typescript", percentaje: 95 },
-        { languaje: "PHP", percentaje: 80 },
-    ]
-    return new Promise((resolve) => setTimeout(() => resolve(data), 2500))
+    const response = await fetch('api/github_repos')
+    const repos = await response.json()
+
+    // console.log(repos.filter(r => r.language === 'Hack'))
+
+    const languages = repos.map((r) => r.language).filter(l => l !== null && l !== 'Hack' && l !== 'Java')
+    const languagesSet = new Set(languages)
+    console.log(languages)
+    const languageTotal = languages.length
+
+    const languagesData = []
+
+    for (const lang of languagesSet) {
+        languagesData.push({ language: lang, percentage: +(languages.filter(el => el === lang).length * 100 / languageTotal).toFixed(1) })
+    }
+
+
+    const orderedLanguages = languagesData.sort((a, b) => a.percentage > b.percentage ? -1 : 1)
+    return orderedLanguages
+
 }
 
 export async function fetchForkedRepos() {
@@ -32,8 +65,27 @@ export async function fetchForkedRepos() {
 
 export async function fetchPullRequests() {
     //emulating async fetching
-    const data = [{ merged: 90, notMerged: 10 }]
-    return new Promise((resolve) => setTimeout(() => resolve(data), 300))
+    // const data = [{ commits: 90, pullRequests: 10 }]
+    // return new Promise((resolve) => setTimeout(() => resolve(data), 300))
+
+    const response = await fetch('api/github_events')
+    const events: GithubEvent = await response.json()
+    console.log(events.filter(ev => ev.type === GithubEventType.PullRequest))
+    const mappedEvents = events.map(el => el.type).filter(ev => ev !== GithubEventType.Public && ev !== GithubEventType.Watch)
+
+    const eventsSet = new Set(mappedEvents)
+    const totalEvents = mappedEvents.length
+
+    const eventsData = []
+
+    for (const ev of eventsSet) {
+        eventsData.push({ type: ev, percentage: +(mappedEvents.filter(el => el === ev).length * 100 / totalEvents).toFixed(1) })
+    }
+
+    console.log(eventsData)
+    return eventsData
+
+
 
 }
 
