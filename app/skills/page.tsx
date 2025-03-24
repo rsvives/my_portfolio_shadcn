@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/Tabs"
 
@@ -8,8 +8,8 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { ProjectListItem } from "@/components/ProjectListItem";
 import { Project } from "@/lib/definitions";
 
-// import { ChartConfig, ChartContainer } from "@/components/ui/chart";
-// import { Bar, BarChart, XAxis, YAxis } from "recharts";
+import { ChartConfig, ChartContainer } from "@/components/ui/chart";
+import { Bar, BarChart, XAxis, YAxis } from "recharts";
 import FixedStats from "@/components/FixedStats";
 // import { fetchTechnologies } from "@/lib/data";
 // import { useQuery } from "@tanstack/react-query";
@@ -72,7 +72,7 @@ const skills = {
             percentaje: 0.65
         },
     ],
-    // database: [{}],
+    database: [{}],
     infrastructure: [{
         tech: 'Zustand',
         percentaje: 0.65
@@ -145,35 +145,14 @@ const projects: Project[] = [
         tags: ['asdf', 'asdf', 'asdf']
     },
 ]
-// const chartConfig = {
-//     forks: {
-//         label: 'Forked: '
-//     },
-//     notMerged: {
-//         label: 'Open'
-//     },
-//     percentaje: {
-//         label: "percentaje",
-//         // color: "#2563eb",
-//     },
-//     php: {
-//         label: "PHP",
-//         color: "#2563eb",
-//     },
-//     javascript: {
-//         label: "JavaScript",
-//     },
-//     python: {
-//         label: "Python",
-//     },
-//     HTML: {
-//         label: "HTML",
-//     },
-//     mobile: {
-//         label: "Mobile",
-//         color: "#60a5fa",
-//     },
-// } satisfies ChartConfig
+const chartConfig = {
+
+    percentage: {
+        label: "percentage",
+        // color: "#2563eb",
+    },
+
+} satisfies ChartConfig
 
 export default function SkillsPage() {
     // const { data: skills, error, isLoading } = useQuery({ queryKey: ['technologies'], queryFn: fetchTechnologies })
@@ -194,7 +173,7 @@ export default function SkillsPage() {
 
                 <div className="flex flex-col">
 
-                    {Object.entries(skills).map(([key]) =>
+                    {Object.entries(skills).map(([key, value]) =>
                         <TabsContent className="mt-4" key={key} value={key}>
                             <div className="flex gap-4 flex-wrap md:flex-nowrap items-stretch ">
                                 {/* <div className="grid gap-4 grid-cols-6"> */}
@@ -205,7 +184,7 @@ export default function SkillsPage() {
                                         <CardTitle>Technologies</CardTitle>
                                     </CardHeader>
                                     <CardContent className="">
-                                        {/* <ChartContainer config={chartConfig} className="w-[100%] flex-1"   >
+                                        <ChartContainer config={chartConfig} className="w-[100%] flex-1"   >
                                             <BarChart layout="vertical" accessibilityLayer data={value} margin={{ left: 16 }} onMouseEnter={() => console.log('entering on', value)} >
                                                 <YAxis
                                                     dataKey="tech"
@@ -219,7 +198,7 @@ export default function SkillsPage() {
                                                 <Bar dataKey="percentaje" layout="vertical" fill="#000" radius={8} />
                                                 <XAxis dataKey="percentaje" type="number" hide />
                                             </BarChart>
-                                        </ChartContainer> */}
+                                        </ChartContainer>
                                     </CardContent>
                                 </Card>
                                 <Card className="w-[100%] md:w-[40%]">
