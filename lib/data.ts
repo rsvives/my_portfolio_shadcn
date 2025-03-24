@@ -1,4 +1,5 @@
 import { Commits, GithubEvent, GithubEventType } from "./definitions"
+import { isCommitRelatedEvent } from "./utils"
 
 export async function fetchLatestCommits(): Promise<Commits[]> {
 
@@ -7,7 +8,7 @@ export async function fetchLatestCommits(): Promise<Commits[]> {
     console.log(events)
 
 
-    const filteredEvents = events.filter((el) => el.type === GithubEventType.PullRequest || el.type === GithubEventType.Push)
+    const filteredEvents = events.filter((el) => isCommitRelatedEvent(el.type))
     const mappedCommits = filteredEvents.map((el) => ({ date: el.created_at, commits: el.payload?.commits?.length ?? 0, repo: el.repo }))
     const groupedCommits: Commits[] = mappedCommits.reduce((acc, commit) => {
         const date = commit.date?.split('T')[0]; // Extract only the date part
