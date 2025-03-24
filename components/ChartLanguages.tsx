@@ -6,23 +6,23 @@ import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "
 export function ChartLanguages({ languagesData }) {
 
     const chartConfig = {
-        php: {
-            label: "PHP",
-            color: "#2563eb",
-        },
-        javascript: {
-            label: "JavaScript",
-        },
-        python: {
-            label: "Python",
-        },
-        HTML: {
-            label: "HTML",
-        },
+        // php: {
+        //     label: "PHP",
+        //     color: "#2563eb",
+        // },
+        // JavaScript: {
+        //     label: "JS",
+        // },
+        // TypeScript: {
+        //     label: "TS",
+        // },
+        // HTML: {
+        //     label: "HTML",
+        // },
     } satisfies ChartConfig
 
     return (
-        <ChartContainer config={chartConfig} className="h-[100px] w-[100%]">
+        <ChartContainer config={chartConfig} className=" aspect-square max-h-[200px] w-[100%]">
             <RadialBarChart
                 accessibilityLayer
                 data={languagesData}
@@ -41,12 +41,12 @@ export function ChartLanguages({ languagesData }) {
             >
                 <ChartTooltip
                     cursor={false}
-                    content={<ChartTooltipContent color="#111" nameKey="languaje" labelFormatter={() => 'Used in my repos (%)'} />}
+                    content={<ChartTooltipContent color="#111" nameKey="language" labelFormatter={() => 'Used in my repos (%)'} />}
                 />
-                <RadialBar dataKey="percentaje" background cornerRadius={8}>
+                <RadialBar dataKey="percentage" background cornerRadius={8}>
                     <LabelList
                         position="insideStart"
-                        dataKey="languaje"
+                        dataKey="language"
                         className="fill-white capitalize mix-blend-luminosity"
                         fontSize={11}
                     />
