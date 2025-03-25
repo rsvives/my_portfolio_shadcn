@@ -11,11 +11,7 @@ export function ChartCommits({ data }: { data: Commits[] | undefined }) {
     const chartConfig = {
         commits: {
             label: "Commits:",
-            // color: "#2563eb",
-        },
-        // date: {
-        //     label: (date) => date.toLocaleString('dd/mm/aaaa')
-        // }
+        }
     } satisfies ChartConfig
 
     return (
