@@ -13,3 +13,14 @@ export function isCommitRelatedEvent(param: string | null): param is GithubEvent
 export function isActivityRelevant(param: string | null): param is GithubEventType {
   return param === GithubEventType.PullRequest || param === GithubEventType.Push || param === GithubEventType.Fork || param === GithubEventType.Create
 }
+
+
+export function dateDifferenceInDays(initialDate: Date, finalDate: Date = new Date()) {
+  const differenceInTime = finalDate.getTime() - new Date(initialDate).getTime();
+  const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
+  return differenceInDays
+}
+
+export function daysDifferenceIsLessThan(numberOfDays: number, initialDate: Date | string, finalDate: Date = new Date()): boolean {
+  return numberOfDays >= dateDifferenceInDays(initialDate, finalDate)
+}

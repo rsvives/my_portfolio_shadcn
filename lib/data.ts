@@ -1,5 +1,5 @@
 import { Commits, GithubEvent, GithubEventType, GithubRepo } from "./definitions"
-import { isActivityRelevant, isCommitRelatedEvent } from "./utils"
+import { dateDifferenceInDays, daysDifferenceIsLessThan, isActivityRelevant, isCommitRelatedEvent } from "./utils"
 
 export async function fetchLatestCommits(): Promise<Commits[]> {
 
@@ -29,16 +29,15 @@ export async function fetchLatestCommits(): Promise<Commits[]> {
 }
 
 export async function fetchLanguages() {
-    //emulating async fetching
     const response = await fetch('api/github_repos')
     const repos: GithubRepo = await response.json()
-    // console.log('repos', repos)
+    const languages = repos
+        .filter(r => daysDifferenceIsLessThan(300, r.updated_at))
+        .map((r) => r.language)
+        .filter(l => l !== null && l !== 'Hack' && l !== 'Java')
 
-    const languages = repos.map((r) => r.language).filter(l => l !== null && l !== 'Hack' && l !== 'Java')
     const languagesSet = new Set(languages)
-    // console.log(languages)
     const languageTotal = languages.length
-
     const languagesData = []
 
     for (const lang of languagesSet) {

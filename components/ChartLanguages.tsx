@@ -36,7 +36,7 @@ export function ChartLanguages({ languagesData }) {
                 endAngle={-380}
                 barSize={18}
                 barGap={12}
-                innerRadius={'20%'}
+                innerRadius={'25%'}
                 outerRadius={'100%'}
                 // cy={'80%'}
                 margin={{
