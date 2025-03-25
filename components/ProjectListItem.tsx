@@ -21,8 +21,8 @@ export function ProjectListItem({ project }: props) {
                 <div>stars + commits + pr</div>
             </div>
             <div className="flex gap-2">
-                <Button variant="ghost" >Repositorio</Button>
-                <Button variant="outline" >Ver</Button>
+                <Button variant="ghost" >View</Button>
+                {/* <Button variant="outline" >Ver</Button> */}
 
             </div>
         </div>

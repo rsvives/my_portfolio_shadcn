@@ -5,7 +5,7 @@ import CardPullRequestsChart from "./CardPullRequestsChart";
 
 export default async function FixedStats() {
     return (
-        <div id="fixed-stats" className="grid gap-4 mt-4 grid-cols-2 lg:grid-cols-4">
+        <div id="fixed-stats" className="grid gap-4 mt-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             <CardCommitsChart />
             <CardLanguagesChart />
             <CardForkedReposChart />
