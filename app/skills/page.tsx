@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/Tabs"
 
@@ -184,7 +184,7 @@ export default function SkillsPage() {
                                         <CardTitle>Technologies</CardTitle>
                                     </CardHeader>
                                     <CardContent className="">
-                                        <ChartContainer config={chartConfig} className="w-[100%] flex-1"   >
+                                        {/* <ChartContainer config={chartConfig} className="w-[100%] flex-1"   >
                                             <BarChart layout="vertical" accessibilityLayer data={value} margin={{ left: 16 }} onMouseEnter={() => console.log('entering on', value)} >
                                                 <YAxis
                                                     dataKey="tech"
@@ -198,7 +198,7 @@ export default function SkillsPage() {
                                                 <Bar dataKey="percentaje" layout="vertical" fill="#000" radius={8} />
                                                 <XAxis dataKey="percentaje" type="number" hide />
                                             </BarChart>
-                                        </ChartContainer>
+                                        </ChartContainer> */}
                                     </CardContent>
                                 </Card>
                                 <Card className="w-[100%] md:w-[40%]">

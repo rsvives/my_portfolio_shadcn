@@ -13,9 +13,9 @@ export function ChartCommits({ data }: { data: Commits[] | undefined }) {
             label: "Commits:",
             // color: "#2563eb",
         },
-        date: {
-            label: (date) => date.toLocaleString('dd/mm/aaaa')
-        }
+        // date: {
+        //     label: (date) => date.toLocaleString('dd/mm/aaaa')
+        // }
     } satisfies ChartConfig
 
     return (
@@ -31,7 +31,8 @@ export function ChartCommits({ data }: { data: Commits[] | undefined }) {
                 margin={{
                     left: 12,
                     right: 12,
-                    top: 12
+                    top: 12,
+                    bottom: 12
                 }}
             >
                 <CartesianGrid vertical={false} />
