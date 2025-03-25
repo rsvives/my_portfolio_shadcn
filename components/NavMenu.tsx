@@ -7,17 +7,10 @@ import { cn } from "@/lib/utils";
 
 export function NavMenu() {
     return (
-        <header className="sticky top-0 w-[100%] flex p-4 backdrop-blur-sm justify-between z-20">
-            <Link href="/">
-                <span className="font-extrabold size-5">RSerran</span>
+        <header className="sticky top-0 w-[100%] flex p-4 backdrop-blur-sm justify-between z-20 items-center">
+            <Link href="/" className="p-3">
+                <span className="font-extrabold size-5">RSerrán</span>
             </Link>
-            {/* <nav className="">
-                <ul className="flex gap-2 backdrop-blur-md">
-                    <li><Link href="">first</Link></li>
-                    <li><Link href="">second</Link></li>
-                    <li><Link href="">Third</Link></li>
-                </ul>
-            </nav> */}
             <NavigationMenu>
                 <NavigationMenuList>
 
