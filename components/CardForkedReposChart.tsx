@@ -11,8 +11,9 @@ export default function CardForkedReposChart() {
     const { data: forkedReposData, error, isLoading } = useQuery({ queryKey: ['forkedRepos'], queryFn: fetchForkedRepos })
     if (isLoading) return (<div>...loading</div>)
 
+    const totalForked = forkedReposData?.reduce((sum, repo) => sum + (repo.forks || 0), 0);
     return (
-        <FixedStatsCard title="Forked Repositories" value={1234} icon={<GitForkIcon size={16}></GitForkIcon>}>
+        <FixedStatsCard title="My Forked Repositories" value={totalForked} icon={<GitForkIcon size={16}></GitForkIcon>}>
             <ChartForkedRepos forkedReposData={forkedReposData} />
         </FixedStatsCard>
     )
