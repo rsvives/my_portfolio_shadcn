@@ -9,3 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 export function isCommitRelatedEvent(param: string | null): param is GithubEventType {
   return param === GithubEventType.PullRequest || param === GithubEventType.Push
 }
+
+export function isActivityRelevant(param: string | null): param is GithubEventType {
+  return param === GithubEventType.PullRequest || param === GithubEventType.Push || param === GithubEventType.Fork || param === GithubEventType.Create
+}
