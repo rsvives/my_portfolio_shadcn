@@ -177,7 +177,7 @@ export default function SkillsPage() {
                         <TabsContent className="mt-4" key={key} value={key}>
                             <div className="flex gap-4 flex-wrap md:flex-nowrap items-stretch ">
                                 {/* <div className="grid gap-4 grid-cols-6"> */}
-                                <Card className="w-[100%] md:w-[60%]">
+                                <Card className="w-[100%] lg:w-[60%]">
                                     {/* <Card className="col-span-4"> */}
                                     <CardHeader>
                                         {/* <CardDescription className="capitalize">{key}</CardDescription> */}
@@ -201,12 +201,12 @@ export default function SkillsPage() {
                                         </ChartContainer> */}
                                     </CardContent>
                                 </Card>
-                                <Card className="w-[100%] md:w-[40%]">
+                                <Card className="w-[100%] lg:w-[40%]">
                                     <CardHeader>
                                         <CardTitle>Projects</CardTitle>
                                     </CardHeader>
                                     <CardContent className="px-2">
-                                        <ScrollArea className="h-full md:h-[29vw] px-4">
+                                        <ScrollArea className="h-full sm:h-[40vw] lg:h-[20vw] px-4">
                                             <div className="space-y-4">
                                                 {projects.map(p =>
                                                     <ProjectListItem key={p.name} project={p} />

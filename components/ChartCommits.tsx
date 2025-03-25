@@ -15,7 +15,7 @@ export function ChartCommits({ data }: { data: Commits[] | undefined }) {
     } satisfies ChartConfig
 
     return (
-        <ChartContainer config={chartConfig} className="max-h-[200px] mx-auto aspect-video ">
+        <ChartContainer config={chartConfig} className="max-h-[180px] mx-auto aspect-video ">
             {/* <BarChart accessibilityLayer data={data} >
                 <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
                 <XAxis dataKey={'date'} hide />

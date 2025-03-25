@@ -12,7 +12,7 @@ export function CardSkeletonChart() {
                 <CardTitle><Skeleton className="w-[80px] h-[20px] rounded-full" /></CardTitle>
             </CardHeader>
             <CardContent>
-                <Skeleton className="w-[100%] h-[200px] rounded-md" />
+                <Skeleton className="w-[100%] h-[180px] rounded-md" />
             </CardContent>
         </Card>
     )

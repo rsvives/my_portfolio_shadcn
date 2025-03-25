@@ -28,7 +28,7 @@ export function ChartLanguages({ languagesData }) {
     } satisfies ChartConfig
 
     return (
-        <ChartContainer config={chartConfig} className=" aspect-square max-h-[200px] mx-auto">
+        <ChartContainer config={chartConfig} className=" aspect-square max-h-[180px] mx-auto">
             <RadialBarChart
                 accessibilityLayer
                 data={languagesData}
