@@ -4,6 +4,8 @@ import { Button } from "./ui/button";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "./ui/navigation-menu";
 import React from "react";
 import { cn } from "@/lib/utils";
+import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "./ui/drawer";
+import { MenuIcon } from "lucide-react";
 
 export function NavMenu() {
     return (
@@ -11,7 +13,7 @@ export function NavMenu() {
             <Link href="/" className="p-3">
                 <span className="font-extrabold size-5">RSerrán</span>
             </Link>
-            <NavigationMenu>
+            <NavigationMenu className="hidden sm:block">
                 <NavigationMenuList>
 
                     <NavigationMenuItem>
@@ -22,9 +24,9 @@ export function NavMenu() {
                         </Link>
                     </NavigationMenuItem>
 
-                    <NavigationMenuItem>
+                    <NavigationMenuItem >
                         <NavigationMenuTrigger>About me</NavigationMenuTrigger>
-                        <NavigationMenuContent>
+                        <NavigationMenuContent >
                             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                                 <ListItem href="/docs" title="Introduction">
                                     Re-usable components built using Radix UI and Tailwind CSS.
@@ -55,7 +57,75 @@ export function NavMenu() {
 
                 </NavigationMenuList>
             </NavigationMenu>
+
             {/* <Button>contact</Button> */}
+            <Drawer direction="right">
+                <DrawerTrigger className="block sm:hidden">
+                    <Button variant={'outline'}>
+                        <MenuIcon />
+                    </Button>
+                </DrawerTrigger>
+                <DrawerContent>
+                    <DrawerHeader>
+                        <DrawerTitle>Menu</DrawerTitle>
+                        <DrawerDescription>Where do you want to go?</DrawerDescription>
+                        {/* <ul>
+                            <ListItem href="/" title="Hello" >Nothing</ListItem>
+                            <ListItem href="/skills" title="Skills" >Nothing</ListItem>
+                        </ul> */}
+                        <NavigationMenu  >
+                            <NavigationMenuList className="flex flex-col" >
+
+                                <NavigationMenuItem>
+                                    <Link href="/" legacyBehavior passHref>
+                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                            Hello
+                                        </NavigationMenuLink>
+                                    </Link>
+                                </NavigationMenuItem>
+
+                                <NavigationMenuItem >
+                                    <NavigationMenuTrigger>About me</NavigationMenuTrigger>
+                                    <NavigationMenuContent >
+                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                                            <ListItem href="/docs" title="Introduction">
+                                                Re-usable components built using Radix UI and Tailwind CSS.
+                                            </ListItem>
+                                        </ul>
+                                    </NavigationMenuContent>
+                                </NavigationMenuItem>
+
+                                <NavigationMenuItem>
+                                    <Link href="/skills" legacyBehavior passHref>
+                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                            Skills
+                                        </NavigationMenuLink>
+                                    </Link>
+                                </NavigationMenuItem>
+
+                                {/* <NavigationMenuItem>
+                        <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                            <NavigationMenuLink>All the projects listed</NavigationMenuLink>
+                            <Link href="/projects" legacyBehavior passHref>
+                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                    see all
+                                </NavigationMenuLink>
+                            </Link>
+                        </NavigationMenuContent>
+                    </NavigationMenuItem> */}
+
+                            </NavigationMenuList>
+                        </NavigationMenu>
+
+                    </DrawerHeader>
+
+
+                    <DrawerFooter>
+                        footer
+                    </DrawerFooter>
+                </DrawerContent>
+            </Drawer>
         </header >
     )
 
