@@ -16,11 +16,7 @@ export function ChartCommits({ data }: { data: Commits[] | undefined }) {
 
     return (
         <ChartContainer config={chartConfig} className="max-h-[180px] mx-auto aspect-video ">
-            {/* <BarChart accessibilityLayer data={data} >
-                <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-                <XAxis dataKey={'date'} hide />
-                <Bar dataKey='commits' radius={8} fill="#000" />
-            </BarChart> */}
+
             <LineChart
                 accessibilityLayer
                 data={data}
