@@ -59,8 +59,8 @@ export function NavMenu() {
             </NavigationMenu>
 
             {/* <Button>contact</Button> */}
-            <Drawer direction="right">
-                <DrawerTrigger className="block sm:hidden">
+            <Drawer direction="right" >
+                <DrawerTrigger className="block sm:hidden" asChild>
                     <Button variant={'outline'}>
                         <MenuIcon />
                     </Button>
@@ -68,11 +68,12 @@ export function NavMenu() {
                 <DrawerContent>
                     <DrawerHeader>
                         <DrawerTitle>Menu</DrawerTitle>
-                        <DrawerDescription>Where do you want to go?</DrawerDescription>
+                        <DrawerDescription hidden>Where do you want to go?</DrawerDescription>
                         {/* <ul>
                             <ListItem href="/" title="Hello" >Nothing</ListItem>
                             <ListItem href="/skills" title="Skills" >Nothing</ListItem>
                         </ul> */}
+
                         <NavigationMenu  >
                             <NavigationMenuList className="flex flex-col" >
 
@@ -98,7 +99,10 @@ export function NavMenu() {
                                 <NavigationMenuItem>
                                     <Link href="/skills" legacyBehavior passHref>
                                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                            Skills
+                                            <DrawerClose>
+
+                                                Skills
+                                            </DrawerClose>
                                         </NavigationMenuLink>
                                     </Link>
                                 </NavigationMenuItem>
@@ -117,7 +121,6 @@ export function NavMenu() {
 
                             </NavigationMenuList>
                         </NavigationMenu>
-
                     </DrawerHeader>
 
 
