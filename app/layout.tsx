@@ -33,7 +33,7 @@ export default function RootLayout({
         <QueryProvider>
           <div className="min-h-screen flex flex-col">
             <NavMenu />
-            <main className="flex flex-1 items-center justify-center">
+            <main className="flex flex-1 items-center justify-center p-4 sm:p-8 font-[family-name:var(--font-geist-sans)]">
               {children}
             </main>
           </div>
