@@ -25,7 +25,7 @@ export default function Home() {
 
 
   return (
-    <div className="grid grid-rows-[1fr_24px] items-center justify-items-center p-8 pb-20 gap-20 sm:gap-32 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[1fr_24px] items-center justify-items-center pb-20 gap-20 sm:gap-32">
       <div>
         <Skeleton className="w-[120px] h-[120px] sm:w-[200px] sm:h-[200px] rounded-full mb-6"></Skeleton>
         <div className="flex gap-3 items-center">
