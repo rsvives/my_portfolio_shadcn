@@ -107,22 +107,26 @@ export async function fetchTechnologies() {
             },
             {
                 tech: 'Typescript',
-                percentaje: 0.85
-            },
-            {
-                tech: 'Redux',
-                percentaje: 0.65
+                percentaje: 0.75
             },
             {
                 tech: 'ReactQuery',
                 percentaje: 0.75
             },
             {
+                tech: 'Redux',
+                percentaje: 0.65
+            },
+            {
                 tech: 'GraphQL',
                 percentaje: 0.8
             },
+            // {
+            //     tech: 'Zustand',
+            //     percentaje: 0.65
+            // },
             {
-                tech: 'Zustand',
+                tech: 'React Native',
                 percentaje: 0.65
             },
 
@@ -130,12 +134,42 @@ export async function fetchTechnologies() {
         backend: [
             {
                 tech: 'NodeJS',
-                percentaje: 0.65
+                percentaje: 0.95
             },
             {
                 tech: 'Laravel',
+                percentaje: 0.8
+            },
+            {
+                tech: 'Express',
+                percentaje: 0.85
+            },
+            {
+                tech: 'Deno',
                 percentaje: 0.65
             },
+            {
+                tech: 'PHP',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Python',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Socket.io',
+                percentaje: 0.65
+            },
+            {
+                tech: 'OAuth',
+                percentaje: 0.65
+            },
+            {
+                tech: 'JWT',
+                percentaje: 0.65
+            },
+        ],
+        database: [
             {
                 tech: 'MySQL',
                 percentaje: 0.65
@@ -144,24 +178,85 @@ export async function fetchTechnologies() {
                 tech: 'MongoDB',
                 percentaje: 0.65
             },
+            {
+                tech: 'Supabase',
+                percentaje: 0.65
+            },
+            {
+                tech: 'PostgreSQL',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Redis',
+                percentaje: 0.65
+            },
         ],
-        // database: [{}],
-        infrastructure: [{
-            tech: 'Zustand',
-            percentaje: 0.65
-        },],
-        other: [{}],
+        other: [
+            {
+                tech: 'Docker',
+                percentaje: 0.65
+            },
+            {
+                tech: 'CI/CD',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Jest',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Cypress',
+                percentaje: 0.65
+            },
+            {
+                tech: 'AWS',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Github Actions',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Jenkins',
+                percentaje: 0.65
+            },
+        ],
+
         'UX/UI': [
             {
                 tech: 'Figma',
-                percentaje: 0.65
+                percentaje: 0.5
             },
             {
                 tech: 'Design Thinking',
                 percentaje: 0.65
             },
             {
-                tech: 'Design Thinking',
+                tech: 'Wireframing',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Prototyping',
+                percentaje: 0.65
+            },
+            {
+                tech: 'UX Research',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Lottie Files',
+                percentaje: 0.65
+            },
+            {
+                tech: 'After Effects',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Photoshop',
+                percentaje: 0.65
+            },
+            {
+                tech: 'Illustrator',
                 percentaje: 0.65
             },
         ],
