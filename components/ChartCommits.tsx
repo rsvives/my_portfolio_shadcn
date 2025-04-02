@@ -2,7 +2,7 @@
 
 import { Commits } from "@/lib/definitions"
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart"
-import { Bar, BarChart, CartesianGrid, Line, LineChart, XAxis } from "recharts"
+import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 
 
 

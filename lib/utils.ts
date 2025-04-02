@@ -21,8 +21,10 @@ export function dateDifferenceInDays(initialDate: Date, finalDate: Date = new Da
   return differenceInDays
 }
 
-export function daysDifferenceIsLessThan(numberOfDays: number, initialDate: Date | string, finalDate: Date = new Date()): boolean {
-  return numberOfDays >= dateDifferenceInDays(initialDate, finalDate)
+export function daysDifferenceIsLessThan(numberOfDays: number, initialDate: Date | string | null | undefined, finalDate: Date = new Date()): boolean | null {
+  if (!initialDate) return null
+
+  return numberOfDays >= dateDifferenceInDays(new Date(initialDate), finalDate)
 }
 
 export function sluggify(name: string): string {

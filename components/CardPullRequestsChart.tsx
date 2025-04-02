@@ -14,6 +14,7 @@ export default function CardPullRequestsChart() {
     const { data: pullRequestsData, error, isLoading } = useQuery({ queryKey: ['pullRequests'], queryFn: fetchPullRequests })
 
     if (isLoading) return (<CardSkeletonChart />)
+    if (error) return (<div>error loading component 😢</div>)
 
     return (
         <FixedStatsCard title="Pull Requests" value={pullRequestsData?.filter(ev => ev.type === GithubEventType.PullRequest)[0].percentage + '%'} icon={<GitPullRequestArrow size={16}></GitPullRequestArrow>}>

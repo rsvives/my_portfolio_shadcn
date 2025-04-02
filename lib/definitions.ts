@@ -4,13 +4,14 @@ import { Endpoints } from "@octokit/types";
 
 export type Project = {
     avatar: string,
-    name: string
+    name: string,
     category: string[],
     description: string,
     repository_url: string | null,
     deploy_url: string | null,
     tags: string[],
-    techStack: string[]
+    techStack: string[],
+    pics: string[]
 }
 
 export type GithubEvent = Endpoints["GET /users/{username}/events"]['response']['data']

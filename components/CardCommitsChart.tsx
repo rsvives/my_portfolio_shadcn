@@ -11,6 +11,8 @@ export default function CardCommitsChart() {
     const { data, error, isLoading } = useQuery({ queryKey: ['commits'], queryFn: fetchLatestCommits })
 
     if (isLoading) return <CardSkeletonChart />
+    if (error) return (<div>error loading component 😢</div>)
+
     const totalCommits = data?.reduce((acc, curr) => acc + (curr.commits || 0), 0) || 0
     // console.log(totalCommits)
     return (

@@ -5,11 +5,13 @@ import Link from "next/link";
 import { sluggify } from "@/lib/utils";
 
 type props = {
-    project: Project
+    project: Project,
+    showLinks: boolean
 }
 
-export function ProjectListItem({ project }: props) {
+export function ProjectListItem({ project, showLinks = false }: props) {
     // return (JSON.stringify(project))
+
     return (
         <Link href={`/projects/${sluggify(project.name)}`} className="flex items-center gap-4 select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground w-[100%]">
             {/* <div key={project.name} className=""> */}
@@ -26,6 +28,7 @@ export function ProjectListItem({ project }: props) {
                     )}
                 </div>
             </div>
+            {showLinks && <ProjectLinks repo={project.repository_url} demo={project.deploy_url} />}
 
             {/* <Button variant="ghost" className="flex">View</Button> */}
 
@@ -33,4 +36,17 @@ export function ProjectListItem({ project }: props) {
         </Link>
     )
 
+}
+
+type projectLinksprops = {
+    repo: string | null,
+    demo: string | null
+}
+function ProjectLinks({ repo, demo }: projectLinksprops) {
+    return (
+        <div>
+            <p>{repo}</p>
+            <p>{demo}</p>
+        </div>
+    )
 }

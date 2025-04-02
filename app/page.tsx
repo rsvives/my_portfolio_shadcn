@@ -1,7 +1,6 @@
 import { Avatar } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-// import { Skeleton } from "@/components/ui/skeleton";
 import { DownloadIcon } from "lucide-react";
 import Image from "next/image";
 

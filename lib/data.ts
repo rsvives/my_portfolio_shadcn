@@ -1,5 +1,5 @@
-import { Commits, GithubEvent, GithubEventType, GithubRepo, Project } from "./definitions"
-import { dateDifferenceInDays, daysDifferenceIsLessThan, isActivityRelevant, isCommitRelatedEvent } from "./utils"
+import { Commits, GithubEvent, GithubRepo, Project } from "./definitions"
+import { daysDifferenceIsLessThan, isActivityRelevant, isCommitRelatedEvent } from "./utils"
 
 export async function fetchLatestCommits(): Promise<Commits[]> {
 
@@ -10,10 +10,10 @@ export async function fetchLatestCommits(): Promise<Commits[]> {
 
     const filteredEvents = events.filter((el) => isCommitRelatedEvent(el.type))
     // console.log(filteredEvents)
+
     const mappedCommits = filteredEvents.map((el) => ({ date: el.created_at, commits: el.payload?.size ?? 0, repo: el.repo }))
     const groupedCommits: Commits[] = mappedCommits.reduce((acc, commit) => {
         const date = commit.date?.split('T')[0]; // Extract only the date part
-
         if (!acc[date]) {
             acc[date] = { date, commits: 0, repos: [] };
         }
@@ -272,10 +272,12 @@ export async function fetchProjects(): Promise<Project[]> {
             avatar: 'asdf.png',
             category: ['frontend', 'backend'],
             description: 'Digital nomads travel blog integrated with Patreon login to restrict access for certain sections to only-members',
-            repository_url: '#',
-            deploy_url: '',
+            repository_url: null,
+            deploy_url: 'https://tropicalninis.com/',
             techStack: ['Nuxtjs', 'Vue', 'OAuth', 'Headless CMS', 'Nuxt Content', 'Javascript', 'AWS', 'Cloudflare'],
-            tags: ['asdf', 'asdf', 'asdf']
+            tags: ['asdf', 'asdf', 'asdf'],
+            pics: ['', '', '']
+
         },
         {
             name: 'Music Bingo',
@@ -285,7 +287,9 @@ export async function fetchProjects(): Promise<Project[]> {
             repository_url: '#',
             deploy_url: '',
             techStack: ['React', 'Socket.io', 'Spotify', 'OAuth', 'Javascript'],
-            tags: ['asdf', 'asdf', 'asdf']
+            tags: ['asdf', 'asdf', 'asdf'],
+            pics: ['', '', '']
+
         },
         {
             name: 'Github Repos App',
@@ -295,7 +299,8 @@ export async function fetchProjects(): Promise<Project[]> {
             repository_url: '#',
             deploy_url: '',
             techStack: ['React Native', 'Javascript', 'CSS'],
-            tags: ['asdf', 'asdf', 'asdf']
+            tags: ['asdf', 'asdf', 'asdf'],
+            pics: ['', '', '']
         },
         {
             name: 'Raspi Intercom',
@@ -305,7 +310,8 @@ export async function fetchProjects(): Promise<Project[]> {
             repository_url: 'https://github.com/rsvives/RasPintercom',
             deploy_url: null,
             techStack: ['Python', 'MongoDB', 'OAuth', 'Google Console', 'Telegram'],
-            tags: ['asdf', 'asdf', 'asdf']
+            tags: ['asdf', 'asdf', 'asdf'],
+            pics: ['', '', '']
         },
         {
             name: 'Anecdotes App',
@@ -315,17 +321,21 @@ export async function fetchProjects(): Promise<Project[]> {
             repository_url: '#',
             deploy_url: '',
             techStack: ['React', 'React Router', 'ReactQuery', 'TanStack', 'CSS'],
-            tags: ['asdf', 'asdf', 'asdf']
+            tags: ['asdf', 'asdf', 'asdf'],
+            pics: ['', '', '']
+
         },
         {
             name: 'This Portfolio',
             avatar: 'qwer.png',
             category: ['frontend'],
             description: 'Basically all this website',
-            repository_url: '#',
+            repository_url: '',
             deploy_url: '',
             techStack: ['Nextjs', 'Javascript', 'Tailwind', 'ShadCN'],
-            tags: ['asdf', 'asdf', 'asdf']
+            tags: ['asdf', 'asdf', 'asdf'],
+            pics: ['', '', '']
+
         },
         {
             name: 'Medical Records',
@@ -335,7 +345,9 @@ export async function fetchProjects(): Promise<Project[]> {
             repository_url: '#',
             deploy_url: '',
             techStack: ['React Native'],
-            tags: ['asdf', 'asdf', 'asdf']
+            tags: ['asdf', 'asdf', 'asdf'],
+            pics: ['', '', '']
+
         },
         {
             name: 'PokeCards',
@@ -345,7 +357,9 @@ export async function fetchProjects(): Promise<Project[]> {
             repository_url: '#',
             deploy_url: '',
             techStack: ['PHP', 'CSS'],
-            tags: ['asdf', 'asdf', 'asdf']
+            tags: ['asdf', 'asdf', 'asdf'],
+            pics: ['', '', '']
+
         },
     ]
     return new Promise((resolve) => setTimeout(() => resolve(projects), 0))

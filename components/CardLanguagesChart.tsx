@@ -15,6 +15,7 @@ export default function CardLanguagesChart() {
         queryFn: fetchLanguages
     })
     if (isLoading) return (<CardSkeletonChart />)
+    if (error) return (<div>error loading component 😢</div>)
 
     return (
         <FixedStatsCard title="Languages" value={"top 5"} icon={<CodeIcon size={16} />}>
