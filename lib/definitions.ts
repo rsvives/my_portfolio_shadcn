@@ -36,8 +36,8 @@ export type ForkedRepo = {
     created_at: string | number,
 }
 export type Languages = {
-    languaje: string,
-    percentaje: number
+    language: string | null | undefined,
+    percentage: number
 }
 
 export type Commits = {

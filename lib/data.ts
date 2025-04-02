@@ -1,4 +1,4 @@
-import { Commits, ForkedRepo, GithubEvent, GithubRepo, Project, PullRequests, Technology, TechnologyType } from "./definitions"
+import { Commits, ForkedRepo, GithubEvent, GithubRepo, Languages, Project, PullRequests, Technology, TechnologyType } from "./definitions"
 import { daysDifferenceIsLessThan, isActivityRelevant, isCommitRelatedEvent } from "./utils"
 
 export async function fetchLatestCommits(): Promise<Commits[]> {
@@ -28,7 +28,7 @@ export async function fetchLatestCommits(): Promise<Commits[]> {
     return groupedCommitsArray
 }
 
-export async function fetchLanguages() {
+export async function fetchLanguages(): Promise<Languages[]> {
     const response = await fetch('api/github_repos')
     const repos: GithubRepo = await response.json()
     const languages = repos
