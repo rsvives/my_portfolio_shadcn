@@ -24,3 +24,7 @@ export function dateDifferenceInDays(initialDate: Date, finalDate: Date = new Da
 export function daysDifferenceIsLessThan(numberOfDays: number, initialDate: Date | string, finalDate: Date = new Date()): boolean {
   return numberOfDays >= dateDifferenceInDays(initialDate, finalDate)
 }
+
+export function sluggify(name: string): string {
+  return name.replace(' ', '-').toLowerCase()
+}
