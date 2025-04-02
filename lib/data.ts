@@ -1,4 +1,4 @@
-import { Commits, GithubEvent, GithubEventType, GithubRepo } from "./definitions"
+import { Commits, GithubEvent, GithubEventType, GithubRepo, Project } from "./definitions"
 import { dateDifferenceInDays, daysDifferenceIsLessThan, isActivityRelevant, isCommitRelatedEvent } from "./utils"
 
 export async function fetchLatestCommits(): Promise<Commits[]> {
@@ -261,5 +261,93 @@ export async function fetchTechnologies() {
             },
         ],
     }
-    return new Promise((resolve) => setTimeout(() => resolve(skills), 700))
+    return new Promise((resolve) => setTimeout(() => resolve(skills), 0))
+}
+
+
+export async function fetchProjects(): Promise<Project[]> {
+    const projects: Project[] = [
+        {
+            name: 'Tropical Ninis',
+            avatar: 'asdf.png',
+            category: ['frontend', 'backend'],
+            description: 'Digital nomads travel blog integrated with Patreon login to restrict access for certain sections to only-members',
+            repository_url: '#',
+            deploy_url: '',
+            techStack: ['Nuxtjs', 'Vue', 'OAuth', 'Headless CMS', 'Nuxt Content', 'Javascript', 'AWS', 'Cloudflare'],
+            tags: ['asdf', 'asdf', 'asdf']
+        },
+        {
+            name: 'Music Bingo',
+            avatar: 'fdsa.png',
+            category: ['frontend', 'backend'],
+            description: 'Musical version of Bingo Game, where instead of just random numbers, random numbered songs from a Spotify list are picked',
+            repository_url: '#',
+            deploy_url: '',
+            techStack: ['React', 'Socket.io', 'Spotify', 'OAuth', 'Javascript'],
+            tags: ['asdf', 'asdf', 'asdf']
+        },
+        {
+            name: 'Github Repos App',
+            avatar: 'qwer.png',
+            category: ['frontend'],
+            description: 'Mobile App that shows data from Github API',
+            repository_url: '#',
+            deploy_url: '',
+            techStack: ['React Native', 'Javascript', 'CSS'],
+            tags: ['asdf', 'asdf', 'asdf']
+        },
+        {
+            name: 'Raspi Intercom',
+            avatar: 'qwer.png',
+            category: ['backend'],
+            description: 'Smart Intercom and Remote Acces Control System integrated with a Telegram bot',
+            repository_url: 'https://github.com/rsvives/RasPintercom',
+            deploy_url: null,
+            techStack: ['Python', 'MongoDB', 'OAuth', 'Google Console', 'Telegram'],
+            tags: ['asdf', 'asdf', 'asdf']
+        },
+        {
+            name: 'Anecdotes App',
+            avatar: 'qwer.png',
+            category: ['backend'],
+            description: 'CRUD webapp where people can post their favorite anecdotes',
+            repository_url: '#',
+            deploy_url: '',
+            techStack: ['React', 'React Router', 'ReactQuery', 'TanStack', 'CSS'],
+            tags: ['asdf', 'asdf', 'asdf']
+        },
+        {
+            name: 'This Portfolio',
+            avatar: 'qwer.png',
+            category: ['frontend'],
+            description: 'Basically all this website',
+            repository_url: '#',
+            deploy_url: '',
+            techStack: ['Nextjs', 'Javascript', 'Tailwind', 'ShadCN'],
+            tags: ['asdf', 'asdf', 'asdf']
+        },
+        {
+            name: 'Medical Records',
+            avatar: 'qwer.png',
+            category: ['backend'],
+            description: 'React Native App for creating medical records',
+            repository_url: '#',
+            deploy_url: '',
+            techStack: ['React Native'],
+            tags: ['asdf', 'asdf', 'asdf']
+        },
+        {
+            name: 'PokeCards',
+            avatar: 'qwer.png',
+            category: ['backend'],
+            description: 'Random Pokemon Card generator using data from the PokeAPI',
+            repository_url: '#',
+            deploy_url: '',
+            techStack: ['PHP', 'CSS'],
+            tags: ['asdf', 'asdf', 'asdf']
+        },
+    ]
+    return new Promise((resolve) => setTimeout(() => resolve(projects), 0))
+
 }

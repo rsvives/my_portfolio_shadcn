@@ -7,8 +7,8 @@ export type Project = {
     name: string
     category: string[],
     description: string,
-    repository_url: string,
-    deploy_url: string,
+    repository_url: string | null,
+    deploy_url: string | null,
     tags: string[],
     techStack: string[]
 }
