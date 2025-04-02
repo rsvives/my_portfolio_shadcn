@@ -57,8 +57,8 @@ export function SkillsSection() {
                                                     tickMargin={4}
                                                     axisLine={false}
                                                 />
-                                                <Bar dataKey="percentaje" layout="vertical" fill="#000" radius={8} />
-                                                <XAxis dataKey="percentaje" type="number" hide />
+                                                <Bar dataKey="percentage" layout="vertical" fill="#000" radius={8} />
+                                                <XAxis dataKey="percentage" type="number" hide />
                                             </BarChart>
                                         </ChartContainer>
                                     </CardContent>
