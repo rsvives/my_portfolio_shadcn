@@ -11,21 +11,23 @@ export async function fetchLatestCommits(): Promise<Commits[]> {
     const filteredEvents = events.filter((el) => isCommitRelatedEvent(el.type))
     // console.log(filteredEvents)
 
-    const mappedCommits = filteredEvents.map((el) => ({ date: el.created_at, commits: el.payload?.size ?? 0, repo: el.repo }))
-    const groupedCommits: Commits[] = mappedCommits.reduce((acc, commit) => {
+    const mappedCommits = filteredEvents.map((el) => ({ date: el.created_at, commits: el.payload.size ?? 0, repo: el.repo }))
+    const groupedCommitsObject = mappedCommits.reduce((acc, commit) => {
         const date = commit.date?.split('T')[0]; // Extract only the date part
-        if (!acc[date]) {
-            acc[date] = { date, commits: 0, repos: [] };
+        if (date) {
+            if (!acc[date]) {
+                acc[date] = { date, commits: 0, repos: [] };
+            }
+            acc[date].commits += commit.commits;
+            acc[date].repos.push(commit.repo);
         }
-        acc[date].commits += commit.commits;
-        acc[date].repos.push(commit.repo);
         return acc;
+    }, {} as Record<string, { date: string; commits: number; repos: { id: number; name: string; url: string; }[] }>);
 
+    const groupedCommits: Commits[] = Object.values(groupedCommitsObject).sort((a, b) => a.date > b.date ? 1 : -1);
 
-    }, []);
-
-    const groupedCommitsArray = Object.values(groupedCommits).sort((a, b) => a.date > b.date ? 1 : -1);
-    return groupedCommitsArray
+    // const groupedCommitsArray = Object.values(groupedCommits).sort((a, b) => a.date > b.date ? 1 : -1);
+    return groupedCommits
 }
 
 export async function fetchLanguages(): Promise<Languages[]> {
