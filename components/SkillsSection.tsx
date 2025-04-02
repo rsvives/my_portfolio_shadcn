@@ -6,9 +6,6 @@ import { ScrollArea, ScrollBar } from "./ui/scroll-area"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 import { ChartConfig, ChartContainer } from "./ui/chart"
 import { Bar, BarChart, XAxis, YAxis } from "recharts"
-import { ProjectListItem } from "./ProjectListItem"
-import { Project } from "@/lib/definitions"
-import { ProjectList } from "./ProjectList"
 import { ProjectsCard } from "./ProjectsCard"
 
 const chartConfig = {
@@ -26,8 +23,9 @@ export function SkillsSection() {
     const { data: skills, error, isLoading } = useQuery({ queryKey: ['technologies'], queryFn: fetchTechnologies })
     // const { data: projects, error, isLoading } = useQuery({ queryKey: ['projects'], queryFn: fetchProjects })
 
-    if (isLoading) return (<p>cargando...</p>)
 
+    if (isLoading) return (<p>cargando...</p>)
+    if (error) return (<div>error loading component 😢</div>)
 
     return (
         <>
