@@ -1,16 +1,16 @@
-import { Commits, ForkedRepo, GithubEvent, GithubRepo, Languages, Project, PullRequests, Technology, TechnologyType } from "./definitions"
+import { Commits, ForkedRepo, GithubEvent, GithubEventExtended, GithubRepo, Languages, Project, PullRequests, Technology, TechnologyType } from "./definitions"
 import { daysDifferenceIsLessThan, isActivityRelevant, isCommitRelatedEvent } from "./utils"
 
 export async function fetchLatestCommits(): Promise<Commits[]> {
 
     const response = await fetch('api/github_events')
-    const events: GithubEvent = await response.json()
+    const rawEvents = await response.json()
     // console.log(events)
-
+    const events: GithubEventExtended = rawEvents
 
     const filteredEvents = events.filter((el) => isCommitRelatedEvent(el.type))
     // console.log(filteredEvents)
-
+    // @ts-expect-error Github API types are not complete
     const mappedCommits = filteredEvents.map((el) => ({ date: el.created_at, commits: el.payload.size ?? 0, repo: el.repo }))
     const groupedCommitsObject = mappedCommits.reduce((acc, commit) => {
         const date = commit.date?.split('T')[0]; // Extract only the date part

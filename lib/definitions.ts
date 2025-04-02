@@ -16,7 +16,11 @@ export type Project = {
 
 export type GithubEvent = Endpoints["GET /users/{username}/events"]['response']['data']
 export type GithubRepo = Endpoints["GET /users/{username}/repos"]['response']['data']
-
+export interface GithubEventExtended extends GithubEvent {
+    payload: {
+        size: number;
+    };
+}
 export enum GithubEventType {
     PullRequest = 'PullRequestEvent',
     Push = 'PushEvent',
