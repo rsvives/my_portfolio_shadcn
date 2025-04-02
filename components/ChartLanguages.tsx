@@ -53,8 +53,11 @@ export function ChartLanguages({ languagesData }) {
                     <LabelList
                         position="insideStart"
                         dataKey="language"
-                        className="fill-white font-bold capitalize mix-blend-luminosity"
+                        className="fill-white capitalize mix-blend-luminosity"
                         fontSize={11}
+                        fontWeight='bold'
+                        fontSizeAdjust={0.45}
+
                     />
                 </RadialBar>
 
