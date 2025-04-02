@@ -1,8 +1,6 @@
 "use client"
-import { LabelList, Pie, PieChart, RadialBar, RadialBarChart } from "recharts";
+import { LabelList, RadialBar, RadialBarChart } from "recharts";
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
-import { AxeIcon } from "lucide-react";
-import { icon } from "./icon";
 
 
 

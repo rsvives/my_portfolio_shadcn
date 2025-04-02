@@ -6,7 +6,7 @@ export function ProjectList({ projects }: { projects: Project[] }) {
     return (
         <div className="flex flex-col space-y-5 w-[100%]">
             {projects.map(p =>
-                <ProjectListItem key={p.name} project={p} />
+                <ProjectListItem key={p.name} showLinks={false} project={p} />
             )}
         </div>
     )
