@@ -26,9 +26,14 @@ export enum GithubEventType {
     Public = 'PublicEvent',
 }
 
-export type ForkedRepos = {
+export type ForkedRepo = {
+    forks: number,
+    stars: number,
+    watch: number,
     repo: string,
-    forks: number
+    url: string,
+    updated_at: string | number,
+    created_at: string | number,
 }
 export type Languages = {
     languaje: string,
@@ -47,14 +52,19 @@ export type Repo = {
     url: string
 }
 export type PullRequests = {
-    merged: number,
-    notMerged: number
+    type: string,
+    percentage: number
 }
 
 export type FixedStat = {
     title: string,
     value: number,
     icon: LucideIcon
-    chartData: () => ForkedRepos[] | Languages[] | Commits[] | PullRequests[],
+    chartData: () => ForkedRepo[] | Languages[] | Commits[] | PullRequests[],
     chart: () => JSX.Element
+}
+export type TechnologyType = "frontend" | "backend" | "database" | "other" | "UX/UI"
+export type Technology = {
+    tech: string,
+    percentage: number
 }

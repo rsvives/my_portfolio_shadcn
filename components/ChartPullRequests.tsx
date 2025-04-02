@@ -2,8 +2,12 @@
 
 import { LabelList, PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart";
+import { PullRequests } from "@/lib/definitions";
 
-export function ChartPullRequest({ pullRequestsData }) {
+
+
+
+export function ChartPullRequest({ pullRequestsData }: { pullRequestsData: PullRequests[] | undefined }) {
     const chartConfig = {
         percentage: {
             label: "percentage",

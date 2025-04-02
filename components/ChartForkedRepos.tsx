@@ -2,8 +2,10 @@
 
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart";
+import { ForkedRepo } from "@/lib/definitions";
 
-export function ChartForkedRepos({ forkedReposData }) {
+
+export function ChartForkedRepos({ forkedReposData }: { forkedReposData: ForkedRepo[] | undefined }) {
 
     const chartConfig = {
         forks: {

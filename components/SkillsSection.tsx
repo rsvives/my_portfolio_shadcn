@@ -26,53 +26,58 @@ export function SkillsSection() {
 
     if (isLoading) return (<p>cargando...</p>)
     if (error) return (<div>error loading component 😢</div>)
+    if (skills) {
+        return (
+            <>
+                <Tabs defaultValue="frontend" className="w-[100%]" >
+                    <ScrollArea className="w-[100%]">
+                        <TabsList  >
 
-    return (
-        <>
-            <Tabs defaultValue="frontend" className="w-[100%]" >
-                <ScrollArea className="w-[100%]">
-                    <TabsList  >
-                        {Object.keys(skills).map(s =>
-                            <TabsTrigger key={s} value={s} className="capitalize">{s}</TabsTrigger>
-                        )}
-                    </TabsList>
-                    <ScrollBar orientation="horizontal" hidden />
-                </ScrollArea>
+                            {Object.keys(skills).map(s =>
+                                <TabsTrigger key={s} value={s} className="capitalize">{s}</TabsTrigger>
+                            )}
+                        </TabsList>
+                        <ScrollBar orientation="horizontal" hidden />
+                    </ScrollArea>
 
-                {Object.entries(skills).map(([key, value]) =>
-                    <TabsContent className="mt-4" key={key} value={key}>
-                        <div className="flex gap-4 flex-wrap md:flex-nowrap items-stretch">
-                            <Card className="w-[100%] lg:w-[60%] ">
-                                <CardHeader>
-                                    <CardTitle>Technologies</CardTitle>
-                                </CardHeader>
-                                <CardContent className="flex flex-1">
-                                    <ChartContainer config={chartConfig} className="w-[100%] h-[60vw] sm:max-h-[30vw] sm:h-[100%] flex flex-1"   >
-                                        <BarChart layout="vertical" accessibilityLayer data={value} margin={{ left: 16 }} onMouseEnter={() => console.log('entering on', value)} >
-                                            <YAxis
-                                                dataKey="tech"
-                                                type="category"
-                                                tickLine={false}
-                                                tickMargin={4}
-                                                axisLine={false}
-                                            />
-                                            <Bar dataKey="percentaje" layout="vertical" fill="#000" radius={8} />
-                                            <XAxis dataKey="percentaje" type="number" hide />
-                                        </BarChart>
-                                    </ChartContainer>
-                                </CardContent>
-                            </Card>
+                    {Object.entries(skills).map(([key, value]) =>
+                        <TabsContent className="mt-4" key={key} value={key}>
+                            <div className="flex gap-4 flex-wrap md:flex-nowrap items-stretch">
+                                <Card className="w-[100%] lg:w-[60%] ">
+                                    <CardHeader>
+                                        <CardTitle>Technologies</CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="flex flex-1">
+                                        <ChartContainer config={chartConfig} className="w-[100%] h-[60vw] sm:max-h-[30vw] sm:h-[100%] flex flex-1"   >
+                                            <BarChart layout="vertical" accessibilityLayer data={value} margin={{ left: 16 }} onMouseEnter={() => console.log('entering on', value)} >
+                                                <YAxis
+                                                    dataKey="tech"
+                                                    type="category"
+                                                    tickLine={false}
+                                                    tickMargin={4}
+                                                    axisLine={false}
+                                                />
+                                                <Bar dataKey="percentaje" layout="vertical" fill="#000" radius={8} />
+                                                <XAxis dataKey="percentaje" type="number" hide />
+                                            </BarChart>
+                                        </ChartContainer>
+                                    </CardContent>
+                                </Card>
 
-                            <ProjectsCard />
+                                <ProjectsCard />
 
-                        </div>
+                            </div>
 
-                    </TabsContent>
-                )}
-                {/* </div> */}
+                        </TabsContent>
+                    )}
+                    {/* </div> */}
 
-            </Tabs >
+                </Tabs >
 
-        </>
-    )
+            </>
+        )
+
+    } else {
+        return (<p>no skills yet...</p>)
+    }
 }

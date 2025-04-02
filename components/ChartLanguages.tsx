@@ -1,10 +1,11 @@
 "use client"
 import { LabelList, RadialBar, RadialBarChart } from "recharts";
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { Languages } from "@/lib/definitions";
 
 
 
-export function ChartLanguages({ languagesData }) {
+export function ChartLanguages({ languagesData }: { languagesData: Languages[] | undefined }) {
 
     const chartConfig = {
         PHP: {
