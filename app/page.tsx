@@ -24,7 +24,7 @@ export default function Home() {
     },
   ]
 
-  const description = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero, accusantium quos laboriosam aperiam sit esse? Error voluptatibus esse asperiores."
+  const description = "I am a product design engineer turned into web developer. I used to design physical products for additive manufacturing but my passion for human centered design made me pivot towards digital product design and development. This passion has motivated me not only to code, but also to teach others to code."
 
 
   return (
@@ -45,7 +45,7 @@ export default function Home() {
           <p className="text-md sm:text-lg">{description}</p>
         </section>
         <div className="flex gap-4 items-center flex-row">
-          <Button variant={'outline'}>Download CV <DownloadIcon /></Button>
+          <Button variant={'outline'} asChild><a href="https://drive.google.com/file/d/1vBcJYj-MCIHrbdUDKRZuOReR2YbGwlo4/view?usp=sharing" target="_blank">Download CV <DownloadIcon /></a></Button>
           <Button>Learn more </Button>
         </div>
 
