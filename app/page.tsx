@@ -1,6 +1,7 @@
-import { Badge, badgeVariants } from "@/components/ui/badge";
+import { Avatar } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
+// import { Skeleton } from "@/components/ui/skeleton";
 import { DownloadIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -9,15 +10,18 @@ export default function Home() {
   const links = [
     {
       icon: "/github-logo.svg",
-      text: "Github"
+      text: "Github",
+      link: 'https://github.com/rsvives'
     },
     {
       icon: "/linkedin-logo.svg",
-      text: "LinkedIn"
+      text: "LinkedIn",
+      link: 'https://www.linkedin.com/in/rserran/'
     },
     {
       icon: "/envelope.svg",
-      text: "Email"
+      text: "Email",
+      link: 'mailto:r.serranvives@gmail.com?Subject=Just%20saw%20your%20portfolio%20and'
     },
   ]
 
@@ -25,9 +29,11 @@ export default function Home() {
 
 
   return (
-    <div className="grid grid-rows-[1fr_24px] items-center justify-items-center pb-20 gap-20 sm:gap-32">
+    <div className="grid grid-rows-[1fr_24px] items-center justify-items-center pb-16 gap-20 sm:gap-32">
       <div>
-        <Skeleton className="w-[120px] h-[120px] sm:w-[200px] sm:h-[200px] rounded-full mb-6"></Skeleton>
+        <Avatar className="w-[120px] h-[120px] sm:w-[200px] sm:h-[200px] rounded-full mb-6 scale-x-[-1]">
+          <Image src="/profile.jpeg" className="aspect-square" alt="profile picture of Rodrigo Serrán with a lake and forest on the background" width={200} height={400} />
+        </Avatar>
         <div className="flex gap-3 items-center">
           <span className="text-2xl md:text-3xl font-medium">Rodrigo Serrán</span>
           <Badge className="rounded-full py-1.5 px-2" variant={'outline'}>
@@ -51,9 +57,9 @@ export default function Home() {
           return (
             <a key={l.text}
               className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-              href="#"
+              href={l.link}
               target="_blank"
-              rel="noopener noreferrer"
+            // rel="noopener noreferrer"
             >
               <Image
                 aria-hidden
