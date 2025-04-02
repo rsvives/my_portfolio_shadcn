@@ -1,11 +1,8 @@
 
 import { Project } from "@/lib/definitions";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
-import { GitCommit, StarIcon, StarsIcon } from "lucide-react";
-import { ScrollArea } from "@radix-ui/react-scroll-area";
-import { ScrollBar } from "./ui/scroll-area";
 import { Badge } from "./ui/badge";
+import Link from "next/link";
+import { sluggify } from "@/lib/utils";
 
 type props = {
     project: Project
@@ -14,7 +11,8 @@ type props = {
 export function ProjectListItem({ project }: props) {
     // return (JSON.stringify(project))
     return (
-        <div key={project.name} className="flex items-center gap-4">
+        <Link href={`/projects/${sluggify(project.name)}`} className="flex items-center gap-4 select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground w-[100%]">
+            {/* <div key={project.name} className=""> */}
             {/* <Avatar className="self-start hidden sm:block">
                 <AvatarImage src={project.avatar} alt={project.name} />
                 <AvatarFallback></AvatarFallback>
@@ -31,7 +29,8 @@ export function ProjectListItem({ project }: props) {
 
             {/* <Button variant="ghost" className="flex">View</Button> */}
 
-        </div>
+            {/* </div > */}
+        </Link>
     )
 
 }
