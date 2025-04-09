@@ -64,7 +64,7 @@ function ProjectLink({ url, type }: { url: string | null, type: 'repo' | 'demo' 
     }
     const popoverText = {
         'repo': 'This repository might be private',
-        'demo': 'This project is not yet deployed'
+        'demo': 'This project might not be deployed yet'
     }
     if (url) {
         return (
@@ -80,7 +80,7 @@ function ProjectLink({ url, type }: { url: string | null, type: 'repo' | 'demo' 
                         {buttonText}
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent>
+                <PopoverContent className="min-w-[340px]">
                     <span className="font-medium text-sm">Please notice:</span>
                     <p>{popoverText[type]}</p>
                 </PopoverContent>
