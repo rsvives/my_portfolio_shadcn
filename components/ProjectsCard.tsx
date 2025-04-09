@@ -18,7 +18,7 @@ export function ProjectsCard() {
             <CardContent className="px-2  w-[100%]">
 
                 <ScrollArea className="px-4 md:h-[30vw] w-[100%]" >
-                    <ProjectList projects={projects} />
+                    <ProjectList projects={projects} type="list" />
                     <ScrollBar orientation="vertical" />
                 </ScrollArea>
 
