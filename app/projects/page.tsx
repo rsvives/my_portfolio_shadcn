@@ -6,9 +6,9 @@ export default async function ProjectsPage() {
 
 
     return (
-        <div className="flex flex-col flex-1 space-y-4 w-[100%]">
+        <div className="flex flex-col flex-1 items-start space-y-4 w-[100%]">
             <h2 className="text-3xl font-bold tracking-tight">Projects</h2>
-            <ProjectList projects={projects} />
+            <ProjectList projects={projects} type="grid" />
         </div>
     )
 }
