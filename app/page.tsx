@@ -24,7 +24,8 @@ export default function Home() {
     },
   ]
 
-  const description = "I am a product design engineer turned into web developer. I used to design physical products for additive manufacturing but my passion for human centered design made me pivot towards digital product design and development. This passion has motivated me not only to code, but also to teach others to code."
+  // const description = "I am a product design engineer turned into web developer. I used to design physical products for additive manufacturing but my passion for human centered design made me pivot towards digital product design and development. This passion has motivated me not only to code, but also to teach others to code."
+  const description = "I'm a Design Engineer turned Full-Stack Developer. I started my career developing educational robotics projects and designing parts for additive manufacturing, but since 2019, my passion for creating has led me to "
 
 
   return (
@@ -42,7 +43,10 @@ export default function Home() {
         </div>
         <h1 className="text-3xl md:text-6xl font-extrabold">FullStack Developer</h1>
         <section className="max-w-[600px] flex flex-col gap-2 my-4">
-          <p className="text-md sm:text-lg">{description}</p>
+          <p className="text-md sm:text-lg">{description} <b className="font-semibold">user-centric web development. </b>
+            {/* <span>I also teach others to code :&#41; </span> */}
+          </p>
+
         </section>
         <div className="flex gap-4 items-center flex-row">
           <Button variant={'outline'} asChild><a href="https://drive.google.com/file/d/1vBcJYj-MCIHrbdUDKRZuOReR2YbGwlo4/view?usp=sharing" target="_blank">Download CV <DownloadIcon /></a></Button>
