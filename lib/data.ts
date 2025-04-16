@@ -144,45 +144,49 @@ export async function fetchTechnologies(): Promise<Record<TechnologyType, Techno
             },
             {
                 tech: 'Express',
-                percentage: 0.85
+                percentage: 0.9
             },
             {
                 tech: 'Deno',
-                percentage: 0.65
+                percentage: 0.55
             },
             {
                 tech: 'PHP',
-                percentage: 0.65
+                percentage: 0.8
             },
             {
                 tech: 'Python',
-                percentage: 0.65
+                percentage: 0.5
             },
             {
                 tech: 'Socket.io',
-                percentage: 0.65
+                percentage: 0.75
             },
             {
                 tech: 'OAuth',
-                percentage: 0.65
+                percentage: 0.8
             },
             {
                 tech: 'JWT',
-                percentage: 0.65
+                percentage: 0.85
             },
         ],
         database: [
             {
                 tech: 'MySQL',
-                percentage: 0.65
+                percentage: 0.95
             },
             {
                 tech: 'MongoDB',
-                percentage: 0.65
+                percentage: 0.90
             },
             {
                 tech: 'Supabase',
                 percentage: 0.65
+            },
+            {
+                tech: 'Prisma',
+                percentage: 0.2
             },
             {
                 tech: 'PostgreSQL',
@@ -190,13 +194,13 @@ export async function fetchTechnologies(): Promise<Record<TechnologyType, Techno
             },
             {
                 tech: 'Redis',
-                percentage: 0.65
+                percentage: 0.3
             },
         ],
         other: [
             {
                 tech: 'Docker',
-                percentage: 0.65
+                percentage: 0.85
             },
             {
                 tech: 'CI/CD',
@@ -204,38 +208,38 @@ export async function fetchTechnologies(): Promise<Record<TechnologyType, Techno
             },
             {
                 tech: 'Jest',
-                percentage: 0.65
+                percentage: 0.90
             },
             {
                 tech: 'Cypress',
-                percentage: 0.65
+                percentage: 0.85
             },
             {
                 tech: 'AWS',
-                percentage: 0.65
+                percentage: 0.6
             },
             {
                 tech: 'Github Actions',
-                percentage: 0.65
+                percentage: 0.75
             },
             {
                 tech: 'Jenkins',
-                percentage: 0.65
+                percentage: 0.4
             },
         ],
 
         'UX/UI': [
             {
                 tech: 'Figma',
-                percentage: 0.5
+                percentage: 0.85
             },
             {
                 tech: 'Design Thinking',
-                percentage: 0.65
+                percentage: 0.8
             },
             {
                 tech: 'Wireframing',
-                percentage: 0.65
+                percentage: 0.9
             },
             {
                 tech: 'Prototyping',
@@ -247,19 +251,19 @@ export async function fetchTechnologies(): Promise<Record<TechnologyType, Techno
             },
             {
                 tech: 'Lottie Files',
-                percentage: 0.65
+                percentage: 0.75
             },
             {
                 tech: 'After Effects',
-                percentage: 0.65
+                percentage: 0.7
             },
             {
                 tech: 'Photoshop',
-                percentage: 0.65
+                percentage: 0.8
             },
             {
                 tech: 'Illustrator',
-                percentage: 0.65
+                percentage: 0.75
             },
         ],
     }
@@ -270,7 +274,7 @@ export async function fetchTechnologies(): Promise<Record<TechnologyType, Techno
 export async function fetchProjects(): Promise<Project[]> {
     const projects: Project[] = [
         {
-            name: 'Tropical Ninis',
+            name: 'Tropical Ninis Blog',
             avatar: 'asdf.png',
             category: ['frontend', 'backend'],
             description: 'Digital nomads travel blog integrated with Patreon login to restrict access for certain sections to only-members',
@@ -316,6 +320,18 @@ export async function fetchProjects(): Promise<Project[]> {
             pics: ['', '', '']
         },
         {
+            name: 'GraphQL Library App',
+            avatar: 'qwer.png',
+            category: ['backend', 'frontend'],
+            description: 'App for posting books',
+            repository_url: '',
+            deploy_url: '',
+            techStack: ['React', 'React Router', 'GraphQL', 'Express', 'MongoDB', 'Mongoose', 'JWT', 'Apollo'],
+            tags: ['asdf', 'asdf', 'asdf'],
+            pics: ['', '', '']
+
+        },
+        {
             name: 'Anecdotes App',
             avatar: 'qwer.png',
             category: ['backend'],
@@ -351,6 +367,42 @@ export async function fetchProjects(): Promise<Project[]> {
             pics: ['', '', '']
 
         },
+        {
+            name: 'Phonebook  App',
+            avatar: 'qwer.png',
+            category: ['frontend'],
+            description: 'Simple React SPA for adding contacts',
+            repository_url: '',
+            deploy_url: 'https://fso-phonebook-app-kxit.onrender.com/',
+            techStack: ['React', 'MongoDB'],
+            tags: ['SPA', 'React',],
+            pics: ['', '', '']
+
+        },
+        {
+            name: 'Blog List',
+            avatar: 'qwer.png',
+            category: ['frontend'],
+            description: 'Simple React SPA for adding contacts',
+            repository_url: '',
+            deploy_url: 'https://fso-phonebook-app-kxit.onrender.com/',
+            techStack: ['React', 'MongoDB', 'Github Action'],
+            tags: ['SPA', 'React', 'CI/CD'],
+            pics: ['', '', '']
+
+        },
+        // {
+        //     name: 'Heroes App',
+        //     avatar: 'qwer.png',
+        //     category: ['frontend'],
+        //     description: '',
+        //     repository_url: '',
+        //     deploy_url: '',
+        //     techStack: ['React', 'MongoDB'],
+        //     tags: ['SPA', 'React',],
+        //     pics: ['', '', '']
+
+        // },
         {
             name: 'PokeCards',
             avatar: 'qwer.png',
