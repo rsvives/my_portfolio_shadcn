@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DownloadIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
 
@@ -50,7 +51,7 @@ export default function Home() {
         </section>
         <div className="flex gap-4 items-center flex-row">
           <Button variant={'outline'} asChild><a href={CVLink} target="_blank">Download CV <DownloadIcon /></a></Button>
-          <Button>Learn more </Button>
+          <Button asChild><Link href='/skills'>Learn more</Link></Button>
         </div>
 
       </div>
