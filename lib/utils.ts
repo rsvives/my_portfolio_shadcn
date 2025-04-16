@@ -28,5 +28,5 @@ export function daysDifferenceIsLessThan(numberOfDays: number, initialDate: Date
 }
 
 export function sluggify(name: string): string {
-  return name.replace(' ', '-').toLowerCase()
+  return name.replaceAll(' ', '-').toLowerCase()
 }
