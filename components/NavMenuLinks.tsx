@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from "./ui/navigation-menu";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "./ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -33,6 +33,13 @@ export function NavMenuLinks({ className }: { className: string }) {
                     </NavigationMenuContent>
                 </NavigationMenuItem> */}
 
+                <NavigationMenuItem>
+                    <Link href="/about" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            About me
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
                 <NavigationMenuItem>
                     <Link href="/skills" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
