@@ -3,16 +3,10 @@ import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs"
 import { Toggle } from "@/components/ui/toggle"
+import { fetchPersonalSkills } from "@/lib/data"
+import { PersonalSkills } from "@/lib/definitions"
 import { BriefcaseBusiness, CircleUser, GraduationCap, Palette, Rocket } from "lucide-react"
 import { useEffect, useState } from "react"
-
-type Skills = {
-    creativity: boolean,
-    communication: boolean,
-    adaptation: boolean,
-    teamwork: boolean,
-    quick_learning: boolean
-}
 
 export default function About() {
     const progress = 100
@@ -52,23 +46,12 @@ export default function About() {
         },
     ]
 
-    // function handleClick(value: MouseEvent) {
-    //     console.log(value.target)
-    // }
 
 
+    const initialSkills = fetchPersonalSkills
+    const [skills, setSkills] = useState(initialSkills)
 
-    const initialSkills: Skills = {
-        creativity: false,
-        communication: false,
-        adaptation: false,
-        teamwork: false,
-        quick_learning: false
-    }
-
-    const [skills, setSkills] = useState<Skills>(initialSkills)
-
-    function handleActiveSkills({ state, skill }: { state: boolean, skill: keyof Skills }) {
+    function handleActiveSkills({ state, skill }: { state: boolean, skill: keyof PersonalSkills }) {
         console.log(state, skill)
 
         setSkills((old) => {
@@ -96,15 +79,15 @@ export default function About() {
                     <div className="container flex flex-col w-full items-center">
                         <Card className="p-6 mb-4 shadow-none w-fit items-center">
                             <BriefcaseBusiness className="self-center" strokeWidth={1} size={48} />
-                            <p className="text-md max-w-[600px] text-center">From 3D printing steel componentes to teaching web development, thanks to my diverse background, I have developed the following skills:</p>
+                            <p className="text-md max-w-[600px] text-center">From 3D printing steel components to teaching web development, thanks to my diverse background, I have developed the following skills:</p>
                             <div className="flex flex-wrap gap-2 md:py-4 justify-center">
                                 {Object.keys(skills).map((s) =>
                                     <Toggle
                                         variant='outline'
                                         className="text-xs md:text-sm hover:cursor-pointer"
                                         key={s}
-                                        pressed={skills[s as keyof Skills]}
-                                        onPressedChange={(state) => handleActiveSkills({ state, skill: s as keyof Skills })}
+                                        pressed={skills[s as keyof PersonalSkills]}
+                                        onPressedChange={(state) => handleActiveSkills({ state, skill: s as keyof PersonalSkills })}
                                     >
                                         {s.replace('_', ' ')}
                                     </Toggle>
@@ -134,7 +117,7 @@ export default function About() {
                             <GraduationCap strokeWidth={1} size={48} />
                             {/* <h2 className="text-xl font-bold py-4">Education</h2> */}
                             <p className="text-md max-w-[600px] text-center">
-                                Industrial Design Engineer with a Master in Design Engineering. Currently studing Computer Science.
+                                Industrial Design Engineer with a Master in Design Engineering.<br /> Currently studing Computer Science.
                             </p>
 
                         </Card>
@@ -152,7 +135,7 @@ type TimelineProps = {
     title: string,
     description: string,
     tags: string[],
-    filters: Skills
+    filters: PersonalSkills
 
 }
 
@@ -177,7 +160,7 @@ const TimelineItem = ({ date, title, description, tags, filters }: TimelineProps
                         return (
                             <Badge
                                 key={t}
-                                variant={isSkill && filters[t as keyof Skills] ? 'default' : 'outline'}
+                                variant={isSkill && filters[t as keyof PersonalSkills] ? 'default' : 'outline'}
                                 className="rounded-full"
                             >
                                 {t.replace('_', ' ')}

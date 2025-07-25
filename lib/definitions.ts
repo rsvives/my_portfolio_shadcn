@@ -72,3 +72,11 @@ export type Technology = {
     tech: string,
     percentage: number
 }
+
+export type PersonalSkills = {
+    creativity: boolean,
+    communication: boolean,
+    adaptation: boolean,
+    teamwork: boolean,
+    quick_learning: boolean
+}

@@ -1,7 +1,11 @@
 import FixedStats from "@/components/FixedStats";
 import { SkillsSection } from "@/components/SkillsSection";
 
+
 export default function SkillsPage() {
+
+
+
 
     return (
         <div className="flex flex-col flex-1 space-y-4 w-[100%]">

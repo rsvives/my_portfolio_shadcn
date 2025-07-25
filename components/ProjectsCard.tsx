@@ -15,7 +15,7 @@ export function ProjectsCard() {
             <CardHeader>
                 <CardTitle>Projects</CardTitle>
             </CardHeader>
-            <CardContent className="px-2  w-[100%]">
+            <CardContent className="px-2 w-[100%]">
 
                 <ScrollArea className="px-4 md:h-[30vw] w-[100%]" >
                     <ProjectList projects={projects} type="list" />

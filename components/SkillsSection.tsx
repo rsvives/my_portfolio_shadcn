@@ -1,12 +1,14 @@
 "use client"
-import { fetchTechnologies } from "@/lib/data"
+import { fetchPersonalSkills, fetchTechnologies } from "@/lib/data"
 import { useQuery } from "@tanstack/react-query"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/Tabs"
 import { ScrollArea, ScrollBar } from "./ui/scroll-area"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 import { ChartConfig, ChartContainer } from "./ui/chart"
 import { Bar, BarChart, XAxis, YAxis } from "recharts"
-import { ProjectsCard } from "./ProjectsCard"
+import { PowerStack } from "./PowerStack"
+import { Separator } from "./ui/separator"
+import { Badge } from "./ui/badge"
 
 const chartConfig = {
 
@@ -23,6 +25,8 @@ export function SkillsSection() {
     const { data: skills, error, isLoading } = useQuery({ queryKey: ['technologies'], queryFn: fetchTechnologies })
     // const { data: projects, error, isLoading } = useQuery({ queryKey: ['projects'], queryFn: fetchProjects })
 
+    const personalSkills = fetchPersonalSkills()
+    console.log(personalSkills)
 
     if (isLoading) return (<p>cargando...</p>)
     if (error) return (<div>error loading component 😢</div>)
@@ -48,7 +52,7 @@ export function SkillsSection() {
                                         <CardTitle>Technologies</CardTitle>
                                     </CardHeader>
                                     <CardContent className="flex flex-1">
-                                        <ChartContainer config={chartConfig} className="w-[100%] h-[60vw] sm:max-h-[30vw] sm:h-[100%] flex flex-1"   >
+                                        <ChartContainer config={chartConfig} className="w-[100%] h-[60vw] sm:max-h-[20vw] sm:h-[100%] flex flex-1"   >
                                             <BarChart layout="vertical" accessibilityLayer data={value} margin={{ left: 16 }} onMouseEnter={() => console.log('entering on', value)} >
                                                 <YAxis
                                                     dataKey="tech"
@@ -64,16 +68,29 @@ export function SkillsSection() {
                                     </CardContent>
                                 </Card>
 
-                                <ProjectsCard />
+                                <Card className="w-[100%] lg:w-[40%]">
+                                    <CardContent className="flex flex-col flex-1 justify-between">
+                                        <PowerStack />
+                                        <Separator className="my-8" />
+                                        <div className="flex flex-col flex-1">
+                                            <h3 className="leading-none font-semibold tracking-tight mb-4">Personal skills</h3>
+                                            <div className="flex flex-1 items-center">
+                                                <div className="flex justify-center flex-wrap gap-4 w-full">
+                                                    {Object.keys(personalSkills).map(s => <Badge className="text-sm p-1.5" variant={'outline'} key={s}>{s.replace('_', ' ')}</Badge>)}
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </CardContent>
+
+                                </Card>
 
                             </div>
 
                         </TabsContent>
                     )}
-                    {/* </div> */}
 
                 </Tabs >
-
             </>
         )
 

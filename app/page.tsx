@@ -51,7 +51,7 @@ export default function Home() {
         </section>
         <div className="flex gap-4 items-center flex-row">
           <Button variant={'outline'} asChild><a href={CVLink} target="_blank">Download CV <DownloadIcon /></a></Button>
-          <Button asChild><Link href='/skills'>Learn more</Link></Button>
+          <Button asChild><Link href='/about'>Learn more</Link></Button>
         </div>
 
       </div>
