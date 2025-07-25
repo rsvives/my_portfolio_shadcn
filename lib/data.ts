@@ -1,4 +1,4 @@
-import { Commits, ForkedRepo, GithubEvent, GithubEventExtended, GithubRepo, Languages, Project, PullRequests, Technology, TechnologyType } from "./definitions"
+import { Commits, ForkedRepo, GithubEvent, GithubEventExtended, GithubRepo, Languages, PersonalSkills, Project, PullRequests, Technology, TechnologyType } from "./definitions"
 import { daysDifferenceIsLessThan, isActivityRelevant, isCommitRelatedEvent } from "./utils"
 
 export async function fetchLatestCommits(): Promise<Commits[]> {
@@ -418,4 +418,16 @@ export async function fetchProjects(): Promise<Project[]> {
     ]
     return new Promise((resolve) => setTimeout(() => resolve(projects), 0))
 
+}
+
+export function fetchPersonalSkills(): PersonalSkills {
+    const personalSkills = {
+        creativity: false,
+        communication: false,
+        adaptation: false,
+        teamwork: false,
+        quick_learning: false
+    }
+
+    return personalSkills
 }
