@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Card, CardContent } from "./ui/card"
+import { Card } from "./ui/card"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 
 export function PowerStack() {
@@ -36,15 +36,16 @@ export function PowerStack() {
         },
     ]
     return (
-        <Card className="">
-            <CardContent className="flex gap-2 items-center justify-between">
-                <h3 className="text-xl font-bold tracking-tight">Power Stack</h3>
-                <div className="flex gap-4">
+        <div className="flex flex-col gap-4 flex-1">
+            <h3 className="leading-none font-semibold tracking-tight" > My Power Stack</ h3>
+            <div className="flex flex-1 items-center">
+
+                <div className="flex gap-4 flex-wrap justify-between sm:justify-center w-full" >
                     {powerStack.map(tech =>
                         <Tooltip key={tech.name}>
                             <TooltipTrigger asChild >
                                 <Card className={`p-2 w-fit flex-row items-center ${tech.shadow}`}>
-                                    <Image className="aspect-square rounded-md" width={48} height={48} src={tech.icon} alt={`${tech.name} icon`}></Image>
+                                    <Image className="aspect-square rounded-md" width={32} height={32} src={tech.icon} alt={`${tech.name} icon`}></Image>
                                 </Card>
                             </TooltipTrigger>
                             <TooltipContent>
@@ -55,6 +56,7 @@ export function PowerStack() {
 
                     )}
                 </div>
-            </CardContent>
-        </Card>)
+            </div>
+        </div >
+    )
 }
