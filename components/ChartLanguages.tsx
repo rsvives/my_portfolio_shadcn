@@ -46,13 +46,13 @@ export function ChartLanguages({ languagesData }: { languagesData: Languages[] |
             >
                 <ChartTooltip
                     cursor={false}
-                    content={<ChartTooltipContent color="#111" nameKey="language" labelFormatter={() => 'Used in my repos (%)'} />}
+                    content={<ChartTooltipContent color="var(--card-foreground)" nameKey="language" labelFormatter={() => 'Used in my repos (%)'} />}
                 />
-                <RadialBar dataKey="percentage" stackId={'a'} background cornerRadius={8}>
+                <RadialBar dataKey="percentage" stackId={'a'} background cornerRadius={8} fill="var(--card-foreground)">
                     <LabelList
                         position="insideStart"
                         dataKey="language"
-                        className="fill-white capitalize mix-blend-luminosity"
+                        className="fill-[var(--card-background)] capitalize mix-blend-luminosity"
                         fontSize={11}
                         fontWeight='bold'
                         fontSizeAdjust={0.45}

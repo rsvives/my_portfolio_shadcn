@@ -36,7 +36,7 @@ export function ChartCommits({ data }: { data: Commits[] | undefined }) {
                 <Line
                     dataKey="commits"
                     type="natural"
-                    stroke="#000"
+                    stroke="var(--card-foreground)"
                     strokeWidth={2}
                     activeDot={{
                         r: 6,

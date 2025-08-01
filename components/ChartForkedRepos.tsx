@@ -26,7 +26,7 @@ export function ChartForkedRepos({ forkedReposData }: { forkedReposData: ForkedR
                 />
                 <CartesianGrid vertical={false} />
                 <XAxis dataKey={'repo'} hide />
-                <Bar dataKey='forks' radius={8} fill="#000" ></Bar>
+                <Bar dataKey='forks' radius={8} fill="var(--card-foreground)" ></Bar>
             </BarChart>
         </ChartContainer>
     )
