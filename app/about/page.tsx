@@ -143,7 +143,8 @@ export default function About() {
                 </TabsContent>
 
                 <TabsContent value="education">
-                    <div className="container flex flex-col w-full md:items-center">
+
+                    <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, type: 'spring', duration: 1 }} className="container flex flex-col w-full items-center">
                         <Card className="p-6 mb-8 shadow-none w-fit items-center">
                             <GraduationCap strokeWidth={1} size={48} />
                             <p className="text-md max-w-[600px] text-center">
@@ -152,7 +153,7 @@ export default function About() {
                         </Card>
                         <div className="grid md:grid-cols-3 gap-4">
                             {education.map((el, i) =>
-                                <motion.div key={el.title.name} initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.2, type: 'spring', duration: 0.5 }}>
+                                <motion.div key={el.title.name} initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.2, type: 'spring', duration: 1 }}>
 
                                     <Card className="flex-1 h-full">
                                         <CardContent className="h-full flex flex-col justify-between gap-4">
@@ -173,7 +174,7 @@ export default function About() {
                                 </motion.div>
                             )}
                         </div>
-                    </div>
+                    </motion.div>
 
                 </TabsContent>
             </Tabs>
@@ -210,7 +211,7 @@ const Timeline = ({ skills, animate }: TimelineProps) => {
                 name: 'ArcelorMittal R&D',
                 logo: '/logos/companies/arcelormittal.png',
             },
-            description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos illo minus dolorum vero cupiditate. Quo ex perferendis sed est libero?',
+            description: 'I had the opportunity to be part of a select group of researchers, engineers, and scientists at ArcelorMittal Global R&D. During this time, I was part of the additive manufacturing team, where I applied my design and engineering knowledge to help improve the steelmaking process by leveraging the advantages of advanced 3D printing with plastic and metal materials. I also contributed my skills in part scanning, material selection, and research into use cases where additive manufacturing with steel has a place in the industry.',
             tags: ['R&D', 'design', 'research', 'communication', 'additive manufacturing', 'adaptation', 'quick_learning', 'open innovation']
 
         },
@@ -222,7 +223,7 @@ const Timeline = ({ skills, animate }: TimelineProps) => {
                 name: 'Impultec Group',
                 logo: '/logos/companies/grupoimpultec.png',
             },
-            description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos illo minus dolorum vero cupiditate. Quo ex perferendis sed est libero?',
+            description: 'After experiencing the competitive R&D environment, I decided to pivot towards the design and development of digital products. Grupo Impultec is a logistics management company with a small development team, whose main product is a logistics company comparison tool for individuals and businesses. As a UX Engineer, my tasks included identifying areas for improvement from a usability standpoint, enhancing the visual design of interfaces, and developing those interfaces using HTML, CSS, JS, and later, Nuxt and Vue. One of the main challenges our development team faced was the design and development of a warehouse management system to compete with Amazon Fulfillment.',
             tags: ['UX', 'creativity', 'figma', 'adaptation', 'communication', 'Nuxt', 'teamwork', 'js', 'PHP', 'MySQL']
 
         },
@@ -234,7 +235,7 @@ const Timeline = ({ skills, animate }: TimelineProps) => {
                 name: 'Unendo',
                 logo: '/logos/companies/afa.png',
             },
-            description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos illo minus dolorum vero cupiditate. Quo ex perferendis sed est libero?',
+            description: 'While working as a UX Engineer, I was contacted by the vocational training academy Unendo to teach classes in the Advanced Vocational Programs in Web Application Development and Multiplatform Application Development. Among the subjects I have taught are Databases (MySQL), Markup Languages (HTML and CSS), Server-Side Web Development (PHP and Node.js), and Data Access (Java), among others. During this period, I refined my communication skills and adaptability, as things in the classroom don’t always go as planned, and it’s important to know how to think on your feet.',
             tags: ['communication', 'adaptation', 'leadership', 'js', 'PHP', 'MySQL', 'creativity']
 
         },
