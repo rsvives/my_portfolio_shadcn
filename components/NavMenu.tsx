@@ -7,6 +7,7 @@ import React from "react";
 import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "./ui/drawer";
 import { MenuIcon } from "lucide-react";
 import { NavMenuLinks } from "./NavMenuLinks";
+import { ToggleThemeButton } from "./ToggleThemeButton";
 
 export function NavMenu() {
     return (
@@ -14,15 +15,17 @@ export function NavMenu() {
             <Link href="/" className="p-3">
                 <span className="font-extrabold size-5">RSerrán</span>
             </Link>
-            <NavMenuLinks className="hidden sm:flex" />
+            <NavMenuLinks className="hidden sm:flex sm:ml-auto" />
 
-            {/* <Button>contact</Button> */}
+            <ToggleThemeButton className="ml-auto mr-2 sm:mr-0 sm:ml-2 hover:cursor-pointer"></ToggleThemeButton>
+
             <Drawer direction="right" >
                 <DrawerTrigger className="block sm:hidden" asChild>
                     <Button variant={'outline'}>
                         <MenuIcon />
                     </Button>
                 </DrawerTrigger>
+
                 <DrawerContent >
                     <DrawerHeader>
                         <DrawerTitle>Menu</DrawerTitle>
@@ -41,6 +44,7 @@ export function NavMenu() {
                     </DrawerFooter>
                 </DrawerContent>
             </Drawer>
+
         </header >
     )
 

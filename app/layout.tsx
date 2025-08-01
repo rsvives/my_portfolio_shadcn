@@ -4,6 +4,7 @@ import "./globals.css";
 import { QueryProvider } from "@/components/QueryProvider";
 import { NavMenu } from "@/components/NavMenu";
 import { Analytics } from "@vercel/analytics/react"
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,20 +27,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-[100dvh]`}
+    <html lang="en" suppressHydrationWarning>
+      <ThemeProvider
+        attribute='class'
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
       >
-        <Analytics />
-        <QueryProvider>
-          <div className="min-h-[100dvh] flex flex-col">
-            <NavMenu />
-            <main className="flex flex-1 items-center justify-center p-4 sm:p-6 font-[family-name:var(--font-geist-sans)]">
-              {children}
-            </main>
-          </div>
-        </QueryProvider>
-      </body>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-[100dvh]`}
+        >
+          <Analytics />
+          <QueryProvider>
+            <div className="min-h-[100dvh] flex flex-col">
+              <NavMenu />
+              <main className="flex flex-1 items-center justify-center p-4 sm:p-6 font-[family-name:var(--font-geist-sans)]">
+                {children}
+              </main>
+            </div>
+          </QueryProvider>
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
