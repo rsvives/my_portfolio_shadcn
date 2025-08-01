@@ -14,7 +14,7 @@ const chartConfig = {
 
     percentage: {
         label: "percentage",
-        // color: "#2563eb",
+        // color: "var(--chart-0)",
     },
 
 } satisfies ChartConfig
@@ -61,7 +61,7 @@ export function SkillsSection() {
                                                     tickMargin={4}
                                                     axisLine={false}
                                                 />
-                                                <Bar dataKey="percentage" layout="vertical" fill="#000" radius={8} />
+                                                <Bar dataKey="percentage" layout="vertical" fill="var(--card-foreground)" radius={8} />
                                                 <XAxis dataKey="percentage" type="number" hide />
                                             </BarChart>
                                         </ChartContainer>

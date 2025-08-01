@@ -18,13 +18,13 @@ export function ChartPullRequest({ pullRequestsData }: { pullRequestsData: PullR
     return (
         <ChartContainer config={chartConfig} className="max-h-[180px] mx-auto aspect-video" >
             <RadarChart data={pullRequestsData} cy={'55%'}>
-                <ChartTooltip cursor={false} content={<ChartTooltipContent color="#000" formatter={(data) => data + '%'} />} />
+                <ChartTooltip cursor={false} content={<ChartTooltipContent color="var(--card-foreground)" formatter={(data) => data + '%'} />} />
                 <PolarAngleAxis dataKey="type" orientation="outer" />
                 <PolarGrid />
                 <Radar
                     width={'90%'}
                     dataKey="percentage"
-                    // fill="var(--color-desktop)"
+                    fill="var(--card-foreground)"
                     fillOpacity={0.8}
                 />
                 <LabelList position="inside" />
