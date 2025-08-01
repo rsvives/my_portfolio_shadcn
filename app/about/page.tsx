@@ -6,11 +6,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs"
 import { Toggle } from "@/components/ui/toggle"
 import { fetchPersonalSkills } from "@/lib/data"
 import { PersonalSkills } from "@/lib/definitions"
-import { BriefcaseBusiness, CircleUser, GraduationCap, Palette, Rocket } from "lucide-react"
+import { BriefcaseBusiness, Check, CircleUser, GraduationCap, MapPin, Palette, Rocket } from "lucide-react"
 import { useEffect, useState } from "react"
 import { motion } from "motion/react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import Image from "next/image"
 
 export default function About() {
     const initialSkills = fetchPersonalSkills
@@ -24,8 +25,74 @@ export default function About() {
             old[skill] = state
             return { ...old }
         })
-
     }
+    const education = [
+        {
+            title: {
+                type: 'Bachelor Sc',
+                name: 'Industrial Design & Multimedia Engineering'
+            },
+            place: {
+                name: 'University of Wales',
+                web: '',
+                location: ''
+            },
+            date: '2010-2014',
+            description: ''
+        },
+        {
+            title: {
+                type: "Master's Degree",
+                name: 'Industrial Design Engineering'
+            },
+            place: {
+                name: 'Polytechnic University of Madrid',
+                web: '',
+                location: ''
+            },
+            date: '2014-2016',
+            description: ''
+        },
+        {
+            title: {
+                type: "Master's Degree",
+                name: 'Education for Teaching'
+            },
+            place: {
+                name: 'Polytechnic University of Madrid',
+                web: '',
+                location: ''
+            },
+            date: '2020-2021',
+            description: ''
+        },
+        {
+            title: {
+                type: 'Bootcamp',
+                name: 'FullStack Open'
+            },
+            place: {
+                name: 'University of Helsinki',
+                web: '',
+                location: ''
+            },
+            date: '2024',
+            description: ''
+        }, {
+            title: {
+                type: 'Bachelor Sc',
+                name: 'Computer Science'
+            },
+            place: {
+                name: 'UNED -  National University of Remote Studies',
+                web: '',
+                location: ''
+            },
+            date: <Badge className="text-xs">now <Check /></Badge>,
+            description: ''
+        },
+
+    ]
 
     useEffect(() => {
         console.log('use effect')
@@ -77,13 +144,35 @@ export default function About() {
 
                 <TabsContent value="education">
                     <div className="container flex flex-col w-full md:items-center">
-                        <Card className="p-6 mb-4 shadow-none w-fit items-center">
+                        <Card className="p-6 mb-8 shadow-none w-fit items-center">
                             <GraduationCap strokeWidth={1} size={48} />
                             <p className="text-md max-w-[600px] text-center">
-                                Industrial Design Engineer with a Master in Design Engineering.<br /> Currently studing Computer Science.
+                                Industrial Design & Multimedia Engineer with a Master in Design Engineering.<br /> Currently studing Computer Science.
                             </p>
-
                         </Card>
+                        <div className="grid md:grid-cols-3 gap-4">
+                            {education.map((el, i) =>
+                                <motion.div key={el.title.name} initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.2, type: 'spring', duration: 0.5 }}>
+
+                                    <Card className="flex-1 h-full">
+                                        <CardContent className="h-full flex flex-col justify-between gap-4">
+                                            <div>
+                                                <div className="flex justify-between">
+                                                    <h2 className="text-sm font-bold">{el.title.type}</h2>
+                                                    <span className="text-sm">{el.date}</span>
+                                                </div>
+                                                <h2 className="text-lg">{el.title.name}</h2>
+
+                                            </div>
+                                            <div className="flex gap-2 items-start md:h-[36px] lg:h-auto ">
+                                                <MapPin size={16} />
+                                                <span className="flex-1 text-sm">{el.place.name}</span>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </motion.div>
+                            )}
+                        </div>
                     </div>
 
                 </TabsContent>
@@ -107,7 +196,7 @@ const Timeline = ({ skills, animate }: TimelineProps) => {
             title: 'Robotics & Electronics Educational Projects',
             company: {
                 name: 'ConMásFuturo',
-                logo: '/companies/conmasfuturo.png',
+                logo: '/logos/companies/conmasfuturo.png',
             },
             description: 'While finishing my Master’s degree in Design Engineering, I simultaneously worked as an R&D technician, designing and developing educational robotics and electronics projects for children and teenagers. Many of the projects involved 3D printing, electronic components, and programming with Arduino or Raspberry Pi. The challenge was to make the projects engaging enough for students to learn while having fun.',
             tags: ['R&D', 'design', 'robotics', 'electronics', 'creativity', 'teamwork']
@@ -119,7 +208,7 @@ const Timeline = ({ skills, animate }: TimelineProps) => {
             title: 'R&D Design Engineer',
             company: {
                 name: 'ArcelorMittal R&D',
-                logo: '/companies/arcelormittal.png',
+                logo: '/logos/companies/arcelormittal.png',
             },
             description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos illo minus dolorum vero cupiditate. Quo ex perferendis sed est libero?',
             tags: ['R&D', 'design', 'research', 'communication', 'additive manufacturing', 'adaptation', 'quick_learning', 'open innovation']
@@ -131,7 +220,7 @@ const Timeline = ({ skills, animate }: TimelineProps) => {
             title: 'UX Engineer',
             company: {
                 name: 'Impultec Group',
-                logo: '/companies/impultec.png',
+                logo: '/logos/companies/grupoimpultec.png',
             },
             description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos illo minus dolorum vero cupiditate. Quo ex perferendis sed est libero?',
             tags: ['UX', 'creativity', 'figma', 'adaptation', 'communication', 'Nuxt', 'teamwork', 'js', 'PHP', 'MySQL']
@@ -143,7 +232,7 @@ const Timeline = ({ skills, animate }: TimelineProps) => {
             title: 'Web Dev Educator',
             company: {
                 name: 'Unendo',
-                logo: '/companies/unendo.png',
+                logo: '/logos/companies/afa.png',
             },
             description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos illo minus dolorum vero cupiditate. Quo ex perferendis sed est libero?',
             tags: ['communication', 'adaptation', 'leadership', 'js', 'PHP', 'MySQL', 'creativity']
@@ -226,7 +315,7 @@ const TimelineItem = ({ date, title, description, tags, filters, company, durati
                 <h2 className="text-lg font-bold tracking-tighter text-foreground">{title}</h2>
                 <div className="flex gap-2 items-center">
                     <Avatar className="w-[40px] h-[40px] rounded-full">
-                        {/* <Image src={company.logo} alt={company.logo + ' logo'} width={40} height={40} className="aspect-square" /> */}
+                        <Image src={company.logo} alt={company.logo + ' logo'} width={40} height={40} className="aspect-square" />
                         <AvatarFallback></AvatarFallback>
                     </Avatar>
                     <p>{company.name}</p>
