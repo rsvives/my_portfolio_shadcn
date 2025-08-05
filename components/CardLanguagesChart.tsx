@@ -18,7 +18,7 @@ export default function CardLanguagesChart() {
     if (error) return (<div>error loading component 😢</div>)
 
     return (
-        <FixedStatsCard title="Languages" value={"top 5"} icon={<CodeIcon size={16} />}>
+        <FixedStatsCard title="Languages" value={"top 4"} icon={<CodeIcon size={16} />}>
             <ChartLanguages languagesData={languagesData} />
         </FixedStatsCard>
     )

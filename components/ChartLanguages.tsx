@@ -52,7 +52,7 @@ export function ChartLanguages({ languagesData }: { languagesData: Languages[] |
                     <LabelList
                         position="insideStart"
                         dataKey="language"
-                        className="fill-[var(--card-background)] capitalize mix-blend-luminosity"
+                        className="fill-accent capitalize mix-blend-luminosity"
                         fontSize={11}
                         fontWeight='bold'
                         fontSizeAdjust={0.45}
