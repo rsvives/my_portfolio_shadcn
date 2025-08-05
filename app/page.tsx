@@ -52,7 +52,7 @@ export default function Home() {
         </div>
         <h1 className="text-3xl md:text-6xl font-extrabold">FullStack Developer</h1>
         <div className="flex flex-col gap-2">
-          <p className="text-lg my-3 md:my-4 max-w-[290px] md:max-w-none">I&apos;m a <b>Design Engineer</b> turned into a software developer. <br /> Creating  <b>user-centered digital products</b> since 2019</p>
+          <p className="text-lg my-3 md:my-4 max-w-[290px] sm:max-w-none">I&apos;m a <b>Design Engineer</b> turned into a software developer. <br /> Creating  <b>user-centered digital products</b> since 2019</p>
         </div>
         <div className="flex gap-4 items-center flex-row">
           <Button variant={'outline'} asChild><a href={CVLink} target="_blank">Download CV <DownloadIcon /></a></Button>
