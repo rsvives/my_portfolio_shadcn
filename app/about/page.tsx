@@ -6,12 +6,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs"
 import { Toggle } from "@/components/ui/toggle"
 import { fetchPersonalSkills } from "@/lib/data"
 import { PersonalSkills } from "@/lib/definitions"
-import { BriefcaseBusiness, Check, CircleUser, GraduationCap, MapPin, Palette, Rocket } from "lucide-react"
+import { BriefcaseBusiness, Check, CircleUser, GraduationCap, MapPin, Palette, Rocket, X } from "lucide-react"
 import { useEffect, useState } from "react"
 import { motion } from "motion/react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export default function About() {
     const initialSkills = fetchPersonalSkills
@@ -115,7 +116,7 @@ export default function About() {
                 </TabsList>
                 <TabsContent value="carreer">
                     <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, type: 'spring', duration: 1 }} className="container flex flex-col w-full items-center">
-                        <Card className="p-6 mb-4 shadow-none w-fit items-center">
+                        <Card className="p-6 mb-4 md:mb-12 shadow-none w-fit items-center">
                             <BriefcaseBusiness className="self-center" strokeWidth={1} size={48} />
                             <p className="text-md max-w-[600px] text-center">From 3D printing steel components to teaching web development, thanks to my diverse background, I have developed the following skills: <br /><span className="text-xs text-muted-foreground">(tap to highlight)</span></p>
 
@@ -131,13 +132,17 @@ export default function About() {
                                         {s.replace('_', ' ')}
                                     </Toggle>
                                 )}
+                                <Button variant='outline'
+                                    className="text-xs bg-none p-1 md:text-sm hover:cursor-pointer "
+                                    onClick={() => setSkills(initialSkills)}
+                                >
+                                    <X size={24} />
+                                </Button>
                             </div>
                         </Card>
-                        <Card className="border-none shadow-none w-full">
-                            <CardContent className="p-0">
-                                <Timeline skills={skills} animate={animate}></Timeline>
-                            </CardContent>
-                        </Card>
+
+                        <Timeline skills={skills} animate={animate}></Timeline>
+
 
                     </motion.div>
                 </TabsContent>
@@ -260,7 +265,8 @@ const Timeline = ({ skills, animate }: TimelineProps) => {
             <motion.ul variants={navVariants} className={`grid w-full md:grid-cols-4 gap-0 md:gap-6`}>
                 {/* <div className={`w-max flex space-x-4 p-4`}> */}
                 {carreer.map(c =>
-                    <TimelineItem key={c.title} date={c.date} title={c.title} description={c.description} tags={c.tags} filters={skills} company={c.company} duration={c.duration} />)}
+                    <TimelineItem key={c.title} date={c.date} title={c.title} description={c.description} tags={c.tags} filters={skills} company={c.company} duration={c.duration} />
+                )}
             </motion.ul>
         </motion.nav >
 
@@ -302,6 +308,7 @@ const TimelineItem = ({ date, title, description, tags, filters, company, durati
     }
 
     return (
+
         <motion.li variants={itemVariants} className="relative space-y-2 pt-4 md:pt-0">
             <div data-orientation="vertical" role="none" data-slot="separator-root" className="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px absolute top-6 left-0 block md:hidden"></div>
             <div className="absolute left-0 z-10 w-0.5 bg-foreground h-full md:hidden"></div>
@@ -310,7 +317,11 @@ const TimelineItem = ({ date, title, description, tags, filters, company, durati
                 <div className="size-full rounded-full bg-background"></div>
             </div>
 
-            <div className="pl-7 md:pl-0 flex flex-col gap-2">
+            {/* <Card className="flex flex-1 h-full">
+                <CardContent className="h-full"> */}
+
+
+            <div className="pl-7 md:pl-0 flex flex-col gap-2 h-full">
                 <p className="md:hidden text-sm text-muted-foreground">{date}</p>
                 <p className="text-sm">{duration}</p>
                 <h2 className="text-lg font-bold tracking-tighter text-foreground">{title}</h2>
@@ -336,7 +347,7 @@ const TimelineItem = ({ date, title, description, tags, filters, company, durati
                         );
                     })}
                 </div>
-                <Accordion type="single" collapsible >
+                <Accordion type="single" collapsible className="justify-self-end">
                     <AccordionItem value={title}>
                         <AccordionTrigger className="flex justify-start gap-2">See more</AccordionTrigger>
                         <AccordionContent>
@@ -345,6 +356,8 @@ const TimelineItem = ({ date, title, description, tags, filters, company, durati
                     </AccordionItem>
                 </Accordion>
             </div>
+            {/* </CardContent>
+            </Card> */}
         </motion.li >
     )
 }
