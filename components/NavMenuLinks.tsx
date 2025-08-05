@@ -3,23 +3,55 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuL
 import { cn } from "@/lib/utils";
 import React from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
+// import { DrawerClose } from "./ui/drawer";
 
-export function NavMenuLinks({ className }: { className: string }) {
-    const fullWidthMobile = useIsMobile() ? "text-left" : ""
+type Props = {
+    className?: string,
+    isDrawerOpen: (state: boolean) => void
+}
+export function NavMenuLinks(props: Props) {
+    const fullWidthMobile = useIsMobile() ? "width-100 text-left" : ""
 
+    const links = [
+        {
+            text: 'Hello',
+            href: '/'
+        },
+        {
+            text: 'About me',
+            href: '/about'
+        },
+        {
+            text: 'Skills',
+            href: '/skills'
+        },
+        {
+            text: 'Projects',
+            href: '/projects'
+        },
+    ]
+    // className={cn(props.className, 'flex-col')}
+    // className={cn(fullWidthMobile, "w-100 flex flex-col items-stretch sm:flex-row sm:justify-end")} 
+
+    const orientation = useIsMobile() ? 'vertical' : 'horizontal'
     return (
-        <NavigationMenu className={className} >
-            <NavigationMenuList className={cn(fullWidthMobile, "flex flex-col sm:flex-row")} >
+        <NavigationMenu className={cn(props.className, 'w-full max-w-none justify-center sm:justify-end mt-auto sm:mt-0')} orientation={orientation}>
+            <NavigationMenuList asChild className="flex flex-col max-w-none items-center sm:flex-row sm:justify-end w-full ">
+                <div className="w-100 flex">
 
-                <NavigationMenuItem className={fullWidthMobile}>
-                    <Link href="/" legacyBehavior passHref className={fullWidthMobile}>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    {links.map(l =>
 
-                            Hello
+                        <NavigationMenuItem key={l.text} onClick={() => props.isDrawerOpen(false)} >
+                            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()} >
+                                <Link href={l.href} className={cn('active:bg-accent/50', fullWidthMobile)}>
+                                    {l.text}
+                                </Link>
+                            </NavigationMenuLink>
+                        </NavigationMenuItem>
+                    )}
+                </div>
 
-                        </NavigationMenuLink>
-                    </Link>
-                </NavigationMenuItem>
+
 
                 {/* <NavigationMenuItem >
                     <NavigationMenuTrigger>About me</NavigationMenuTrigger>
@@ -32,41 +64,6 @@ export function NavMenuLinks({ className }: { className: string }) {
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem> */}
-
-                <NavigationMenuItem>
-                    <Link href="/about" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            About me
-                        </NavigationMenuLink>
-                    </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <Link href="/skills" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Skills
-                        </NavigationMenuLink>
-                    </Link>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                    <Link href="/projects" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Projects
-                        </NavigationMenuLink>
-                    </Link>
-                    {/* <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
-                <NavigationMenuContent className=" w-[400px]">
-                    <NavigationMenuLink>All the projects listed</NavigationMenuLink>
-                    <Link href="/projects" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            see all
-                        </NavigationMenuLink>
-                    </Link>
-                </NavigationMenuContent> */}
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                </NavigationMenuItem>
-
             </NavigationMenuList>
         </NavigationMenu >
     )
