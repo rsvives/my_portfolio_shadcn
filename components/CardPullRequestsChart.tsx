@@ -17,7 +17,7 @@ export default function CardPullRequestsChart() {
     if (error) return (<div>error loading component 😢</div>)
 
     return (
-        <FixedStatsCard title="Pull Requests" value={pullRequestsData?.filter(ev => ev.type === GithubEventType.PullRequest)[0].percentage + '%'} icon={<GitPullRequestArrow size={16}></GitPullRequestArrow>}>
+        <FixedStatsCard title="Pull Requests" value={pullRequestsData?.filter(ev => ev.type === GithubEventType.PullRequest)[0]?.percentage ?? '<5' + '%'} icon={<GitPullRequestArrow size={16}></GitPullRequestArrow>}>
             <ChartPullRequest pullRequestsData={pullRequestsData} />
         </FixedStatsCard>
     )
