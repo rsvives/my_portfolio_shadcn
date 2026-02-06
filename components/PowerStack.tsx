@@ -7,14 +7,17 @@ import { ReactIcon } from "./Icons/ReactIcon"
 import { TanStack } from "./Icons/TanStack"
 import Node from "@/public/logos/node.svg"
 import Mongo from "@/public/logos/mongo.svg"
+import { cn } from "@/lib/utils"
 
 type Props = {
     title?: string | false,
-    align?: string
+    align?: string,
+    iconSize?: number,
+    gap?: number
 }
 
-export function PowerStack({ title = "My Power Stack", align = "justify-center" }: Props) {
-    const iconDimensions = { width: 28, height: 28 }
+export function PowerStack({ title = "My Power Stack", align = "justify-start", iconSize = 28, gap = 3 }: Props) {
+    const iconDimensions = { width: iconSize, height: iconSize }
 
     const powerStack = [
         {
@@ -50,11 +53,11 @@ export function PowerStack({ title = "My Power Stack", align = "justify-center" 
     ]
 
     return (
-        <div className={`flex flex-col gap-4 flex-1 `}>
+        <div className={`flex flex-col md:flex-1 gap-3`}>
             {title !== false && <h3 className="leading-none font-semibold tracking-tight" > {title}</ h3>}
             <div className={"flex flex-1 items-center"}>
 
-                <div className={`flex gap-2 md:gap-4 flex-wrap ${align} w-full`} >
+                <div className={cn('flex gap-3 flex-wrap w-full', align, `gap-${gap}`)} >
                     {powerStack.map(tech =>
                         <Tooltip key={tech.name}>
                             <TooltipTrigger asChild>

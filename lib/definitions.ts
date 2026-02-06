@@ -4,6 +4,7 @@ import { Endpoints } from "@octokit/types";
 
 export type Project = {
     avatar: string,
+    pro?: boolean,
     name: string,
     category: string[],
     description: string,
@@ -11,6 +12,7 @@ export type Project = {
     deploy_url: string | null,
     tags: string[],
     techStack: string[],
+    stack?: TechIcon[],
     pics: string[]
 }
 
@@ -80,3 +82,10 @@ export type PersonalSkills = {
     teamwork: boolean,
     quick_learning: boolean
 }
+
+
+export enum TechStack {
+    nuxtJs = "Nuxt.js",
+    vue = "Vue"
+}
+export type TechIcon = Record<keyof TechStack, string>

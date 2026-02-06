@@ -1,4 +1,4 @@
-import { Commits, ForkedRepo, GithubEvent, GithubEventExtended, GithubRepo, Languages, PersonalSkills, Project, PullRequests, Technology, TechnologyType } from "./definitions"
+import { Commits, ForkedRepo, GithubEvent, GithubEventExtended, GithubRepo, Languages, PersonalSkills, Project, PullRequests, Technology, TechnologyType, } from "./definitions"
 import { daysDifferenceIsLessThan, isActivityRelevant, isCommitRelatedEvent } from "./utils"
 
 export async function fetchLatestCommits(): Promise<Commits[]> {
@@ -276,35 +276,51 @@ export async function fetchProjects(): Promise<Project[]> {
         {
             name: 'Tropical Ninis Blog',
             avatar: 'asdf.png',
+            pro: true,
             category: ['frontend', 'backend'],
             description: 'Digital nomads travel blog integrated with Patreon login to restrict access for certain sections to only-members',
             repository_url: null,
             deploy_url: 'https://tropicalninis.com/',
             techStack: ['Nuxtjs', 'Vue', 'OAuth', 'Headless CMS', 'Nuxt Content', 'Javascript', 'AWS', 'Cloudflare'],
+            // stack: [TechStack.nuxtJs,],
             tags: ['asdf', 'asdf', 'asdf'],
             pics: ['', '', '']
 
         },
+
         {
-            name: 'Music Bingo',
+            name: 'Monzoon - Weather prediction',
             avatar: 'fdsa.png',
             category: ['frontend', 'backend'],
-            description: 'Musical version of Bingo Game, where instead of just random numbers, random numbered songs from a Spotify list are picked',
-            repository_url: '',
-            deploy_url: '',
+            description: 'Weather Predition Webapp build in few days for the 2025 NASA Space App Challenge using data from EarthAccess, processing and serving it with Python and FastAPI and a React app as client',
+            repository_url: 'https://github.com/rsvives/orbayu-frontend',
+            deploy_url: 'https://monzoon.vercel.app/',
             techStack: ['React', 'Socket.io', 'Spotify', 'OAuth', 'Javascript'],
             tags: ['asdf', 'asdf', 'asdf'],
             pics: ['', '', '']
 
         },
         {
-            name: 'Github Repos App',
-            avatar: 'qwer.png',
+            name: 'Caravia Consulting',
+            avatar: 'fdsa.png',
+            pro: true,
             category: ['frontend'],
-            description: 'Mobile App that shows data from Github API',
+            description: 'Corporate Website for Civil Engineering Company that allows them to show',
+            repository_url: 'https://github.com/rsvives/caravia-consulting',
+            deploy_url: 'https://www.caraviaconsultores.es/',
+            techStack: ['React', 'Socket.io', 'Spotify', 'OAuth', 'Javascript'],
+            tags: ['asdf', 'asdf', 'asdf'],
+            pics: ['', '', '']
+        },
+        {
+            name: 'Prever Laboral CMS',
+            avatar: 'fdsa.png',
+            pro: true,
+            category: ['frontend', 'backend'],
+            description: 'Custom CRM for PreverLaboral by migrating a legacy client management system (PHP 3) to a modern web application (React Client + NodeJS REST API) preserving compatibility with existing data.',
             repository_url: '',
             deploy_url: '',
-            techStack: ['React Native', 'Javascript', 'CSS'],
+            techStack: ['React', 'MySQL', 'REST', 'Node.js', 'Typescript'],
             tags: ['asdf', 'asdf', 'asdf'],
             pics: ['', '', '']
         },
@@ -320,29 +336,64 @@ export async function fetchProjects(): Promise<Project[]> {
             pics: ['', '', '']
         },
         {
-            name: 'GraphQL Library App',
-            avatar: 'qwer.png',
-            category: ['backend', 'frontend'],
-            description: 'App for posting books',
-            repository_url: '',
-            deploy_url: '',
-            techStack: ['React', 'React Router', 'GraphQL', 'Express', 'MongoDB', 'Mongoose', 'JWT', 'Apollo'],
+            name: 'Flabingo Bingo',
+            avatar: 'fdsa.png',
+            category: ['frontend', 'backend'],
+            description: 'Bingo Playing Platform, where players can set virtual rooms for playing bingo with friends. WIP: instead of just random numbers, random numbered songs from a Spotify list are picked',
+            repository_url: 'https://github.com/rsvives/music-bingo-frontend-v2',
+            deploy_url: 'https://flabingo.vercel.app/',
+            techStack: ['React', 'Socket.io', 'Typescript', 'TanStack Query', 'TanStack Router'],
             tags: ['asdf', 'asdf', 'asdf'],
             pics: ['', '', '']
 
         },
         {
-            name: 'Anecdotes App',
+            name: 'Loop Viewer',
             avatar: 'qwer.png',
-            category: ['backend'],
-            description: 'CRUD webapp where people can post their favorite anecdotes',
+            category: ['frontend'],
+            description: 'Webapp for helping students understanding Loops and visualize their intervals',
             repository_url: '',
             deploy_url: '',
-            techStack: ['React', 'React Router', 'ReactQuery', 'TanStack', 'CSS'],
+            techStack: ['React', 'shadcn/ui',],
             tags: ['asdf', 'asdf', 'asdf'],
             pics: ['', '', '']
-
         },
+
+        // {
+        //     name: 'Github Repos App',
+        //     avatar: 'qwer.png',
+        //     category: ['frontend'],
+        //     description: 'Mobile App that shows data from Github API',
+        //     repository_url: '',
+        //     deploy_url: '',
+        //     techStack: ['React Native', 'Javascript', 'CSS'],
+        //     tags: ['asdf', 'asdf', 'asdf'],
+        //     pics: ['', '', '']
+        // },
+        // {
+        //     name: 'GraphQL Library App',
+        //     avatar: 'qwer.png',
+        //     category: ['backend', 'frontend'],
+        //     description: 'App for posting books',
+        //     repository_url: '',
+        //     deploy_url: '',
+        //     techStack: ['React', 'React Router', 'GraphQL', 'Express', 'MongoDB', 'Mongoose', 'JWT', 'Apollo'],
+        //     tags: ['asdf', 'asdf', 'asdf'],
+        //     pics: ['', '', '']
+
+        // },
+        // {
+        //     name: 'Anecdotes App',
+        //     avatar: 'qwer.png',
+        //     category: ['backend'],
+        //     description: 'CRUD webapp where people can post their favorite anecdotes',
+        //     repository_url: '',
+        //     deploy_url: '',
+        //     techStack: ['React', 'React Router', 'ReactQuery', 'TanStack', 'CSS'],
+        //     tags: ['asdf', 'asdf', 'asdf'],
+        //     pics: ['', '', '']
+
+        // },
         {
             name: 'This Portfolio',
             avatar: 'qwer.png',
@@ -355,42 +406,42 @@ export async function fetchProjects(): Promise<Project[]> {
             pics: ['', '', '']
 
         },
-        {
-            name: 'Medical Records',
-            avatar: 'qwer.png',
-            category: ['backend'],
-            description: 'React Native App for creating medical records',
-            repository_url: '',
-            deploy_url: '',
-            techStack: ['React Native'],
-            tags: ['asdf', 'asdf', 'asdf'],
-            pics: ['', '', '']
+        // {
+        //     name: 'Medical Records',
+        //     avatar: 'qwer.png',
+        //     category: ['backend'],
+        //     description: 'React Native App for creating medical records',
+        //     repository_url: '',
+        //     deploy_url: '',
+        //     techStack: ['React Native'],
+        //     tags: ['asdf', 'asdf', 'asdf'],
+        //     pics: ['', '', '']
 
-        },
-        {
-            name: 'Phonebook  App',
-            avatar: 'qwer.png',
-            category: ['frontend'],
-            description: 'Simple React SPA for adding contacts',
-            repository_url: '',
-            deploy_url: 'https://fso-phonebook-app-kxit.onrender.com/',
-            techStack: ['React', 'MongoDB'],
-            tags: ['SPA', 'React',],
-            pics: ['', '', '']
+        // },
+        // {
+        //     name: 'Phonebook  App',
+        //     avatar: 'qwer.png',
+        //     category: ['frontend'],
+        //     description: 'Simple React SPA for adding contacts',
+        //     repository_url: '',
+        //     deploy_url: 'https://fso-phonebook-app-kxit.onrender.com/',
+        //     techStack: ['React', 'MongoDB'],
+        //     tags: ['SPA', 'React',],
+        //     pics: ['', '', '']
 
-        },
-        {
-            name: 'Blog List',
-            avatar: 'qwer.png',
-            category: ['frontend'],
-            description: 'Simple React SPA for adding contacts',
-            repository_url: '',
-            deploy_url: 'https://fso-phonebook-app-kxit.onrender.com/',
-            techStack: ['React', 'MongoDB', 'Github Action'],
-            tags: ['SPA', 'React', 'CI/CD'],
-            pics: ['', '', '']
+        // },
+        // {
+        //     name: 'Blog List',
+        //     avatar: 'qwer.png',
+        //     category: ['frontend'],
+        //     description: 'Simple React SPA for adding contacts',
+        //     repository_url: '',
+        //     deploy_url: 'https://fso-phonebook-app-kxit.onrender.com/',
+        //     techStack: ['React', 'MongoDB', 'Github Action'],
+        //     tags: ['SPA', 'React', 'CI/CD'],
+        //     pics: ['', '', '']
 
-        },
+        // },
         // {
         //     name: 'Heroes App',
         //     avatar: 'qwer.png',
@@ -403,18 +454,18 @@ export async function fetchProjects(): Promise<Project[]> {
         //     pics: ['', '', '']
 
         // },
-        {
-            name: 'PokeCards',
-            avatar: 'qwer.png',
-            category: ['backend'],
-            description: 'Random Pokemon Card generator using data from the PokeAPI',
-            repository_url: '',
-            deploy_url: '',
-            techStack: ['PHP', 'CSS'],
-            tags: ['asdf', 'asdf', 'asdf'],
-            pics: ['', '', '']
+        // {
+        //     name: 'PokeCards',
+        //     avatar: 'qwer.png',
+        //     category: ['backend'],
+        //     description: 'Random Pokemon Card generator using data from the PokeAPI',
+        //     repository_url: '',
+        //     deploy_url: '',
+        //     techStack: ['PHP', 'CSS'],
+        //     tags: ['asdf', 'asdf', 'asdf'],
+        //     pics: ['', '', '']
 
-        },
+        // },
     ]
     return new Promise((resolve) => setTimeout(() => resolve(projects), 0))
 
