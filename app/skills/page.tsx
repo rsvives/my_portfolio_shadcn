@@ -63,7 +63,7 @@ export default function SkillsPage() {
 const PersonalDescription = () => {
     return (
         <div className="flex flex-col gap-4">
-            <p>Me gusta participar en el proceso de desarrollo desde la <b>definición de features</b> hasta la implementación en producción</p>
+            <p>I enjoy being involved in the development process from <b>feature definition</b> to production <b>deployment 🚀.</b></p>
         </div>
     )
 }
