@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs"
 // import { Toggle } from "@/components/ui/toggle"
 import { fetchPersonalSkills } from "@/lib/data"
 import { PersonalSkills, TechIcon } from "@/lib/definitions"
+import { TechBadge } from "@/components/TechBadge"
 import { BriefcaseBusiness, Check, CircleUser, GraduationCap, MapPin, Palette, Rocket, } from "lucide-react"
 import { JSX, useEffect, useState } from "react"
 import { motion } from "motion/react"
@@ -429,18 +430,16 @@ const TimelineItem = ({ date, positions, filters, company }: TimelineItemProps) 
                         </div>
 
                         <div className="flex gap-1 flex-wrap my-2 max-w-xl">
-
                             {job.tags.map(t => {
                                 const isSkill = t in filters
                                 return (
-                                    <Badge
+                                    <TechBadge
                                         key={t}
+                                        tech={t}
+                                        label={t.replace('_', ' ')}
                                         variant={isSkill && filters[t as keyof PersonalSkills] ? 'default' : 'outline'}
-                                        className="rounded-full"
-                                    >
-                                        {t.replace('_', ' ')}
-                                    </Badge>
-                                );
+                                    />
+                                )
                             })}
                         </div>
 

@@ -1,12 +1,11 @@
-
 import { Card } from "./ui/card"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 import { ExpressIcon } from "./Icons/ExpressIcon"
 import { JavascriptIcon } from "./Icons/JavascriptIcon"
 import { ReactIcon } from "./Icons/ReactIcon"
 import { TanStack } from "./Icons/TanStack"
-import Node from "@/public/logos/node.svg"
-import Mongo from "@/public/logos/mongo.svg"
+import { NodeIcon } from "./Icons/NodeIcon"
+import { MongoIcon } from "./Icons/MongoIcon"
 import { cn } from "@/lib/utils"
 
 type Props = {
@@ -32,7 +31,7 @@ export function PowerStack({ title = "My Power Stack", align = "justify-start", 
         },
         {
             name: 'Nodejs',
-            icon: <Node {...iconDimensions} />,
+            icon: <NodeIcon {...iconDimensions} />,
             shadow: 'shadow-none hover:shadow-[0px_0px_12px_0px_#60A04E]'
         },
         {
@@ -47,7 +46,7 @@ export function PowerStack({ title = "My Power Stack", align = "justify-start", 
         },
         {
             name: 'MongoDB',
-            icon: <Mongo {...iconDimensions} />,
+            icon: <MongoIcon {...iconDimensions} />,
             shadow: 'shadow-none hover:shadow-[0px_0px_12px_0px_#00ED64]'
         },
     ]

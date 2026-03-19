@@ -1,8 +1,8 @@
 
 import { Project } from "@/lib/definitions";
-import { Badge } from "./ui/badge";
 import Link from "next/link";
 import { sluggify } from "@/lib/utils";
+import { TechBadge } from "./TechBadge";
 
 type props = {
     project: Project,
@@ -24,7 +24,7 @@ export function ProjectListItem({ project, showLinks = false }: props) {
                 <p className="text-sm text-muted-foreground line-clamp-2">{project.description}</p>
                 <div className="flex flex-wrap gap-1 mt-2">
                     {project.techStack.map(tech =>
-                        <Badge key={tech} variant={'outline'} className="rounded-full">{tech}</Badge>
+                        <TechBadge key={tech} tech={tech} />
                     )}
                 </div>
             </div>

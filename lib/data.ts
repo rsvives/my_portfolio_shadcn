@@ -305,11 +305,11 @@ export async function fetchProjects(): Promise<Project[]> {
             avatar: 'fdsa.png',
             pro: true,
             category: ['frontend'],
-            description: 'Corporate Website for Civil Engineering Company that allows them to show',
+            description: 'Corporate Website for Civil Engineering Company that allows them to showcase and classify their projects about hidraulics, transport, civil engineering, urbanism and other',
             repository_url: 'https://github.com/rsvives/caravia-consulting',
             deploy_url: 'https://www.caraviaconsultores.es/',
-            techStack: ['React', 'Socket.io', 'Spotify', 'OAuth', 'Javascript'],
-            tags: ['asdf', 'asdf', 'asdf'],
+            techStack: ['Nextjs', 'Tailwind', 'Typescript', 'shadcn/ui', 'Supabase', 'zod'],
+            tags: ['CRM', 'website', 'professional', 'civil', 'engineer'],
             pics: ['', '', '']
         },
         {
@@ -332,7 +332,7 @@ export async function fetchProjects(): Promise<Project[]> {
             repository_url: 'https://github.com/rsvives/RasPintercom',
             deploy_url: null,
             techStack: ['Python', 'MongoDB', 'OAuth', 'Google Console', 'Telegram'],
-            tags: ['asdf', 'asdf', 'asdf'],
+            tags: ['IoT', 'Raspberry', 'Telegram', 'automation', 'calendar', ',management', 'home'],
             pics: ['', '', '']
         },
         {
@@ -343,7 +343,7 @@ export async function fetchProjects(): Promise<Project[]> {
             repository_url: 'https://github.com/rsvives/music-bingo-frontend-v2',
             deploy_url: 'https://flabingo.vercel.app/',
             techStack: ['React', 'Socket.io', 'Typescript', 'TanStack Query', 'TanStack Router'],
-            tags: ['asdf', 'asdf', 'asdf'],
+            tags: ['Game', 'Web', 'Webapp', 'app'],
             pics: ['', '', '']
 
         },
@@ -352,8 +352,8 @@ export async function fetchProjects(): Promise<Project[]> {
             avatar: 'qwer.png',
             category: ['frontend'],
             description: 'Webapp for helping students understanding Loops and visualize their intervals',
-            repository_url: '',
-            deploy_url: '',
+            repository_url: 'https://github.com/rsvives/loop-viewer',
+            deploy_url: 'https://loop-viewer.vercel.app/',
             techStack: ['React', 'shadcn/ui',],
             tags: ['asdf', 'asdf', 'asdf'],
             pics: ['', '', '']

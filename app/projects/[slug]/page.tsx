@@ -1,5 +1,5 @@
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { TechBadge } from "@/components/TechBadge"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { fetchProjects } from "@/lib/data"
@@ -43,7 +43,7 @@ export default async function Page({
             <p>{selectedProject.description}</p>
             <div className="flex flex-wrap gap-1 mt-4">
                 {selectedProject.techStack.map(tech =>
-                    <Badge key={tech} variant={'outline'} className="rounded-full">{tech}</Badge>
+                    <TechBadge key={tech} tech={tech} />
                 )}
             </div>
             <div className="flex gap-2 mt-5">
