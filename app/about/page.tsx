@@ -109,7 +109,7 @@ export default function About() {
             <section className="flex flex-col justify-center items-center gap-4 pt-8">
                 <h1 className="text-3xl font-bold tracking-tight">About me</h1>
                 <p className="text-lg max-w-[600px] md:text-center">
-                    My skills as a <b>Design Engineer</b> allow me to be a <Badge className="rounded-sm md:text-sm"><Palette strokeWidth={2} /> creative </Badge> software developer, <Badge className="rounded-sm md:text-sm"> <CircleUser strokeWidth={2} /> user-centered</Badge> , and <Badge className="rounded-sm md:text-sm"> <Rocket strokeWidth={2} /> product-focused</Badge>.
+                    My skills as a <b className="text-foreground">Design Engineer</b> allow me to be a <Badge className="rounded-sm md:text-sm"><Palette strokeWidth={2} /> creative </Badge> software developer, <Badge className="rounded-sm md:text-sm"> <CircleUser strokeWidth={2} /> user-centered</Badge> , and <Badge className="rounded-sm md:text-sm"> <Rocket strokeWidth={2} /> product-focused</Badge>.
                 </p>
             </section>
 
@@ -219,8 +219,8 @@ const Timeline = ({ skills, animate }: TimelineProps) => {
                     tags: ['Next.js', 'React', 'Tailwind', 'shadcn/ui', 'Node.js', 'Typescript', 'Supabase', 'MySQL', 'REST API', 'Vercel', 'Nuxtjs', 'Vue'],
                     description:
                         <>
-                            <p>I developed a custom <b>CRM</b> for <b>PreverLaboral</b>, migrating a legacy system built with <b>PHP3</b> and <b>MySQL</b> to a modern <b>Single Page Application (SPA)</b> using <b>React</b>, <b>TypeScript</b>, and <b>Tailwind CSS</b>. I also built a <b>REST API</b> with <b>Node.js</b> to support the new frontend while maintaining the existing <b>MySQL</b> database, significantly improving usability, maintainability, and scalability.</p>
-                            <p>I am currently developing the corporate website for <b>Caravia Consultores</b>, a civil engineering consultancy, using <b>Next.js</b>, <b>TypeScript</b>, and <b>shadcn/ui</b>. The platform includes <b>server-side rendering (SSR)</b> and a secure admin dashboard that allows authenticated users to manage projects through a simple CMS, powered by <b>Supabase</b> for authentication and database management.</p>
+                            <p className="line">I developed a custom <b className="text-foreground">CRM</b> for <b className="text-foreground">PreverLaboral</b>, migrating a legacy system built with <b className="text-foreground">PHP3</b> and <b className="text-foreground">MySQL</b> to a modern <b className="text-foreground">Single Page Application (SPA)</b> using <b className="text-foreground">React</b>, <b className="text-foreground">TypeScript</b>, and <b className="text-foreground">Tailwind CSS</b>. I also built a <b className="text-foreground">REST API</b> with <b className="text-foreground">Node.js</b> to support the new frontend while maintaining the existing <b className="text-foreground">MySQL</b> database, significantly improving usability, maintainability, and scalability.</p>
+                            <p className="line">I am currently developing the corporate website for <b className="text-foreground">Caravia Consultores</b>, a civil engineering consultancy, using <b className="text-foreground">Next.js</b>, <b className="text-foreground">TypeScript</b>, and <b className="text-foreground">shadcn/ui</b>. The platform includes <b className="text-foreground">server-side rendering (SSR)</b> and a secure admin dashboard that allows authenticated users to manage projects through a simple CMS, powered by <b className="text-foreground">Supabase</b> for authentication and database management.</p>
 
                         </>
 
@@ -249,9 +249,9 @@ const Timeline = ({ skills, animate }: TimelineProps) => {
                     tags: ['HTML', 'CSS', 'PHP', 'Laravel', 'Node.js', 'Javascript', 'MySQL', 'MongoDB', 'Docker', 'Git', 'Github', 'Java', 'Hibernate', 'communication', 'adaptation', 'leadership'],
                     description:
                         <>
-                            {/* <p>In 2021, I was invited by <b>AFA Formación</b> to teach in the official higher vocational programs for <b>Web Development (DAW)</b> and <b>Multiplatform Application Development (DAM)</b>. I also delivered the official <b>SEPE Web Application Development Certificate (IFCD0210)</b> at <b>AFA Formación</b> and <b>Restauradores Bercianos</b>, teaching <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b> for frontend development, and <b>PHP</b> with <b>MySQL</b> for backend development.</p> */}
-                            <p>I am currently an interim Teacher for the <b>Regional Ministry of Education </b>of the Principality of Asturias teaching in the official higher vocational programs for <b>Web Development (DAW)</b> and <b>Multiplatform Application Development (DAM)</b>. Previously worked at <b>AFA Formación</b> and <b>Restauradores Bercianos.</b></p>
-                            <p> My teaching experience includes <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b>, server-side development with <b>PHP</b>, <b>Laravel</b>, and <b>Node.js</b>, programming with <b>Java</b>,  relational databases with <b>MySQL</b>, and application deployment using <b>Docker</b>, <b>Linux</b>, <b>SSH</b>, and <b>Git/GitHub</b>.</p>
+                            {/* <p className="line">In 2021, I was invited by <b className="text-foreground">AFA Formación</b> to teach in the official higher vocational programs for <b className="text-foreground">Web Development (DAW)</b> and <b className="text-foreground">Multiplatform Application Development (DAM)</b>. I also delivered the official <b className="text-foreground">SEPE Web Application Development Certificate (IFCD0210)</b> at <b className="text-foreground">AFA Formación</b> and <b className="text-foreground">Restauradores Bercianos</b>, teaching <b className="text-foreground">HTML</b>, <b className="text-foreground">CSS</b>, and <b className="text-foreground">JavaScript</b> for frontend development, and <b className="text-foreground">PHP</b> with <b className="text-foreground">MySQL</b> for backend development.</p> */}
+                            <p className="line">I am currently an interim Teacher for the <b className="text-foreground">Regional Ministry of Education </b>of the Principality of Asturias teaching in the official higher vocational programs for <b className="text-foreground">Web Development (DAW)</b> and <b className="text-foreground">Multiplatform Application Development (DAM)</b>. Previously worked at <b className="text-foreground">AFA Formación</b> and <b className="text-foreground">Restauradores Bercianos.</b></p>
+                            <p className="line"> My teaching experience includes <b className="text-foreground">HTML</b>, <b className="text-foreground">CSS</b>, and <b className="text-foreground">JavaScript</b>, server-side development with <b className="text-foreground">PHP</b>, <b className="text-foreground">Laravel</b>, and <b className="text-foreground">Node.js</b>, programming with <b className="text-foreground">Java</b>,  relational databases with <b className="text-foreground">MySQL</b>, and application deployment using <b className="text-foreground">Docker</b>, <b className="text-foreground">Linux</b>, <b className="text-foreground">SSH</b>, and <b className="text-foreground">Git/GitHub</b>.</p>
 
                         </>
                     //'While working as a UX Engineer, I was contacted by Unendo (by AFA Formación) to teach classes in the Advanced Vocational Programs in Web Application Development and Multiplatform Application Development. Among the subjects I have taught are Databases (MySQL), Markup Languages (HTML and CSS), Server-Side Web Development (PHP and Node.js), and Data Access (Java), among others. During this period, I refined my communication skills and adaptability, as things in the classroom don’t always go as planned, and it’s important to know how to think on your feet.',
@@ -276,8 +276,8 @@ const Timeline = ({ skills, animate }: TimelineProps) => {
                     tags: ['Javascript', 'Vue', 'Nuxt', 'NodeJS', 'MySQL', 'PHP', 'jQuery', 'Docker', 'Git', 'Bootstrap', 'Vuetify'],
                     description:
                         <>
-                            <p>I developed reusable UI components using <b>Vue.js</b>, <b>Vuetify</b>, and <b>Nuxt</b>, and implemented data fetching and advanced filtering features to visualize shipment data. I also designed and developed key parts of a <b>logistics management system</b> for eCommerce fulfillment, and created <b>REST API endpoints</b> using <b>Node.js</b>.</p>
-                            <p>I introduced <b>TDD practices</b> using <b>Jest</b> and implemented <b>CI/CD pipelines</b> with <b>Jenkins</b> to improve code quality and deployment reliability. Additionally, I enhanced the shipment creation workflow at <b>Genei.es</b> by splitting it into a scalable multi-step process using <b>HTML</b>, <b>CSS</b>, <b>jQuery</b>, and <b>PHP</b>, implemented <b>internationalization (i18n)</b>, and developed <b>landing pages</b> for affiliates using <b>HTML</b>, <b>CSS</b>, <b>Bootstrap</b>, <b>PHP</b>, and <b>MySQL</b>.</p>
+                            <p className="line">I developed reusable UI components using <b className="text-foreground">Vue.js</b>, <b className="text-foreground">Vuetify</b>, and <b className="text-foreground">Nuxt</b>, and implemented data fetching and advanced filtering features to visualize shipment data. I also designed and developed key parts of a <b className="text-foreground">logistics management system</b> for eCommerce fulfillment, and created <b className="text-foreground">REST API endpoints</b> using <b className="text-foreground">Node.js</b>.</p>
+                            <p className="line">I introduced <b className="text-foreground">TDD practices</b> using <b className="text-foreground">Jest</b> and implemented <b className="text-foreground">CI/CD pipelines</b> with <b className="text-foreground">Jenkins</b> to improve code quality and deployment reliability. Additionally, I enhanced the shipment creation workflow at <b className="text-foreground">Genei.es</b> by splitting it into a scalable multi-step process using <b className="text-foreground">HTML</b>, <b className="text-foreground">CSS</b>, <b className="text-foreground">jQuery</b>, and <b className="text-foreground">PHP</b>, implemented <b className="text-foreground">internationalization (i18n)</b>, and developed <b className="text-foreground">landing pages</b> for affiliates using <b className="text-foreground">HTML</b>, <b className="text-foreground">CSS</b>, <b className="text-foreground">Bootstrap</b>, <b className="text-foreground">PHP</b>, and <b className="text-foreground">MySQL</b>.</p>
                         </>
                     //'Grupo Impultec is a logistics management company with a small development team, whose main product is a logistics company comparison tool for individuals and businesses.  and developing those interfaces using HTML, CSS, JS, and later, Nuxt and Vue. One of the main challenges our development team faced was the design and development of a warehouse management system to compete with Amazon Fulfillment.',
                 }, {
@@ -287,9 +287,9 @@ const Timeline = ({ skills, animate }: TimelineProps) => {
                     description:
                         //'As a UX Engineer, my tasks included identifying areas for improvement from a usability standpoint, enhancing the visual design of interfaces.',
                         <>
-                            <p>I conducted <b>UX research</b> and <b>UI design</b> to define user-centered digital products, including conceptual design, wireframing, and the creation of scalable <b>Design Systems</b>. I used prototyping tools such as <b>Figma</b> and <b>Adobe XD</b> to design and validate interfaces before development.</p>
+                            <p className="line">I conducted <b className="text-foreground">UX research</b> and <b className="text-foreground">UI design</b> to define user-centered digital products, including conceptual design, wireframing, and the creation of scalable <b className="text-foreground">Design Systems</b>. I used prototyping tools such as <b className="text-foreground">Figma</b> and <b className="text-foreground">Adobe XD</b> to design and validate interfaces before development.</p>
 
-                            <p>I also implemented responsive <b>HTML</b> and <b>CSS</b> layouts for landing pages, and designed and developed <b>email templates</b> and marketing campaigns, ensuring consistency across platforms and devices.</p>
+                            <p className="line">I also implemented responsive <b className="text-foreground">HTML</b> and <b className="text-foreground">CSS</b> layouts for landing pages, and designed and developed <b className="text-foreground">email templates</b> and marketing campaigns, ensuring consistency across platforms and devices.</p>
 
                         </>
                 }
@@ -416,7 +416,7 @@ const TimelineItem = ({ date, positions, filters, company }: TimelineItemProps) 
                             </Avatar>
                         )}
                     </AvatarGroup>
-                    <p className="text-sm">
+                    <p className="text-sm font-semibold">
                         {company.map((c, i) => c.name + (i < company.length - 2 ? ', ' : '') + (i == company.length - 2 ? ' y ' : ''))}
                     </p>
                 </div>
@@ -443,7 +443,7 @@ const TimelineItem = ({ date, positions, filters, company }: TimelineItemProps) 
                             })}
                         </div>
 
-                        <div className="text-sm flex flex-col gap-2">
+                        <div className="text-sm flex flex-col gap-4 leading-6 text-muted-foreground">
                             {job.description}
                         </div>
 
